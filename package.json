@@ -1,0 +1,24 @@
+{
+  "name": "git-the-gist",
+  "version": "0.0.1",
+  "description": "An oasis for the curious",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lydiarachel/theDahlingsProject.git"
+  },
+  "author": "Caleb Sears (https://github.com/c-sears)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lydiarachel/theDahlingsProject/issues"
+  },
+  "homepage": "https://github.com/lydiarachel/theDahlingsProject#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  }
+}
