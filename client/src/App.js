@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
@@ -7,7 +8,7 @@ import Auth from "./pages/Auth";
 import NavBar from "./components/NavBar";
 import './App.css';
 
-import Heading from './components/Heading'
+
 
 const App = () => (
   <Router>
@@ -22,5 +23,6 @@ const App = () => (
     </div>
   </Router>
 );
+
 
 export default App;
