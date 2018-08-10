@@ -1,9 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Card extends Component {
-  state = {};
-  render() {
-    return (
+const Card = props =>{
+ 
       <div className="row">
       <div className="col s6 m3">
         <div className="card small">
@@ -11,17 +9,12 @@ class Card extends Component {
             <span className="card-title">Card Title</span>
           </div>
           <div className="card-content white">
-            <p>
-              I am a very simple card. I am good at containing small bits of
-              information. I am convenient because I require little markup to
-              use effectively.
-            </p>
+           
           </div>
         </div>
       </div>
     </div>
-    );
-  }
+ 
 }
 
 export default Card;
