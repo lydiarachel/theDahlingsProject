@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 import About from "./pages/About";
 import Auth from "./pages/Auth";
+import Gist from "./pages/Gist";
 import NavBar from "./components/NavBar";
 import './App.css';
 
