@@ -19,12 +19,12 @@ class App extends Component {
       <Router>
         <div>
           <NavBar />
-          <Heading>Git the Gist</Heading>
 
           <Route exact path="/" component={Home} />
           <Route exact path="/search-results" component={Search} />
           <Route exact path="/about" component={About} />
           <Route exact path="/auth" component={Auth} />
+          <Route exact path="/gist-page" component={Gist} />
         </div>
       </Router>
     )
