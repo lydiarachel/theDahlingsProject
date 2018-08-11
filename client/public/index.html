@@ -20,6 +20,21 @@
       document.addEventListener('DOMContentLoaded', function() {
         const elems = document.querySelectorAll('.tooltipped');
         const instances = M.Tooltip.init(elems);
+
+        const dropdowns = document.querySelectorAll('.dropdown-trigger')
+        for (var i = 0; i < dropdowns.length; i++){
+          M.Dropdown.init(dropdowns[i]);
+        }
+
+        const sidenavs = document.querySelectorAll('.sidenav')
+        for (var i = 0; i < sidenavs.length; i++){
+          M.Sidenav.init(sidenavs[i]);
+        }
+
+        const collapsibles = document.querySelectorAll('.collapsible')
+        for (var i = 0; i < collapsibles.length; i++){
+          M.Collapsible.init(collapsibles[i]);
+        }
       });
     </script>
   </body>
