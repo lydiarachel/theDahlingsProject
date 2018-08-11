@@ -1,7 +1,8 @@
 // Handle all http requests for api calls
 //  - all html routing handled by react-router-DOM
 
-const db_controller = require('../controller')
+const control = require('../controller')
+require('../db/Connection')
 
 exports.handleRequest = app => {
     // test route
@@ -16,7 +17,10 @@ exports.handleRequest = app => {
     app.use('/user/create', (req, res) => {
         const new_user = req.body
         // to-do: save new user to db with controller function
-        res.sendStatus(200)
+        control.User.create('stuff')
+            .then(data =>{
+                res.send(data)
+            })
     })
 
     // Create new Gist
@@ -50,7 +54,8 @@ exports.handleRequest = app => {
     app.use('/user/get:user_id', (req, res) => {
         const user_id = req.params.user_id
         // to-do: find user by id in db with controller function
-        res.send(user_id)
+        control.User.find(user_id)
+            .then(data => res.send(data))
     })
 
     // Get single Gist (will return fully populated Gist)
