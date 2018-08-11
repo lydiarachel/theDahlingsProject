@@ -13,3 +13,32 @@
     font-size: 60px;
     line-height: 2.5;
 }
+
+@media screen and (max-width: 900px) {
+    .input-field {
+        height: 100px;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    #search {
+        font-size: 40px;
+        padding-left: 4rem;
+    }
+    
+    .search-icon {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #search {
+        font-size: 30px;
+        padding-left: 3.5rem;
+    }
+    
+    .search-icon {
+        font-size: 30px;
+        line-height: 3.4;
+    }
+}
