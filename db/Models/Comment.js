@@ -4,7 +4,10 @@ const Schema = mongoose.Schema;
 const commentSchema = new Schema({
   comment: { type: String, required: true },
   author: { type: String, required: true },
-  gistId: { type: Number, required: true },
+  gistId: {
+    type: Schema.Types.ObjectId,
+    ref: 'Gist'
+  },
   date: { type: Date, default: Date.now }
 });
 
