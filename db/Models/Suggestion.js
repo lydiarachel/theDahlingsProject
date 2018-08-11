@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const suggestionSchema = new Schema({
   suggestion: { type: String, required: true },
   author: { type: String, required: true },
+  liked: { type: Number, required: true},
   date: { type: Date, default: Date.now }
 });
 
