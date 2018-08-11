@@ -1,6 +1,7 @@
 const app = require('express')()
 const bodyParser = require('body-parser')
-// Handle all http requests
+
+// import api routing function
 const { handleRequest } = require('./routes/routing')
 
 const PORT = process.env.PORT || 8080
