@@ -20,7 +20,7 @@ const userSchema = new Schema({
     ref: 'Suggestion'
   }]
 });
-user.plugin(passportLocalMongoose)
+userSchema.plugin(passportLocalMongoose)
 
 const User = mongoose.model("User", userSchema);
 

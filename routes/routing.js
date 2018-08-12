@@ -1,7 +1,7 @@
 // Handle all http requests for api calls
 //  - all html routing handled by react-router-dom
 const router = require('express').Router()
-
+const path = require("path");
 
 const control = require('../controller')
 require('../db/Connection')
@@ -102,7 +102,9 @@ router.get('/suggestion/multi', (req, res, next) => {
 
 // END GET ROUTES
 // ================================================
-
+router.use(function(req, res) {
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  });
 
 
 module.exports = {

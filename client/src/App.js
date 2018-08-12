@@ -7,6 +7,7 @@ import Auth from "./pages/Auth";
 import Gist from "./pages/Gist";
 import NavBar from "./components/NavBar";
 import './App.css';
+import AddGist from './pages/AddGist';
 
 
 
@@ -23,6 +24,7 @@ class App extends Component {
           <Route exact path="/about" component={About} />
           <Route exact path="/auth" component={Auth} />
           <Route exact path="/gist-page" component={Gist} />
+          <Route exact path = '/add-gist' component ={AddGist} />
         </div>
       </Router>
     )
