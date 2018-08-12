@@ -44,7 +44,7 @@ const NavBar = props => (
     {/* Dropdown Structure */}
     <ul id='dropdown1' className='dropdown-content'>
       <li><a href="#!">Art</a></li>
-      <li><a href="#!">Bussines</a></li>
+      <li><a href="#!">Business</a></li>
       <li><a href="#!">Culture</a></li>
       <li><a href="#!">History</a></li>
       <li><a href="#!">Science</a></li>
