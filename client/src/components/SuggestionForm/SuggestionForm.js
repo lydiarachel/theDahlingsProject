@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-class GistForm extends Component {
+class SuggestionForm extends Component {
   state = {
-    gistTitle: "",
-    gistBody: "",
+    suggestionTitle: "",
+    suggestionBody: "",
     gistCategory: ""
   };
   handleChange = event => {
@@ -18,10 +18,12 @@ class GistForm extends Component {
 
   handleFormSubmit = (event, data) => {
     event.preventDefault();
-    console.log(this.state.gistTitle);
-    API.createGist({
-      title: this.state.gistTitle,
-      body: this.state.gistBody,
+    if(!this.state.suggestionBody && !this.state.suggestionTitle && !this.state.gistCategory){
+      alert('All fields need to be field out')
+    }
+    API.createSuggestion({
+      title: this.state.suggestionTitle,
+      body: this.state.suggestionBody,
       category: this.state.gistCategory
     });
     this.setState({ gistTitle: "" });
@@ -37,10 +39,10 @@ class GistForm extends Component {
               <input
                 name="gistTitle"
                 type="text"
-                value={this.state.gistTitle}
+                value={this.state.suggestionTitle}
                 onChange={this.handleInputChange}
               />
-              <label htmlFor="gist title">Gist Title</label>
+              <label htmlFor="gist title">Suggestion Title</label>
             </div>
           </div>
           <div className="row">
@@ -48,21 +50,19 @@ class GistForm extends Component {
               <textarea
                 name="gistBody"
                 className="materialize-textarea"
-                value={this.state.gistBody}
+                value={this.state.suggestionBody}
                 onChange={this.handleInputChange}
               />
-              <label htmlFor="gist body">Gist Content</label>
+              <label htmlFor="gist body">Suggestion Content</label>
             </div>
           </div>
           <div className="input-field col s6">
             <select
-              className="browser-default"
+              className = 'browser-default'
               value={this.state.gistCategory}
               onChange={this.handleChange}
-            >
-              <option value="" disabled>
-                Choose a Category
-              </option>
+            > 
+              <option value='' disabled>Choose a Category</option>
               <option value="Art">Art</option>
               <option value="Automotive">Automotive</option>
               <option value="Business">Business</option>
@@ -72,6 +72,7 @@ class GistForm extends Component {
               <option value="Tech">Tech</option>
               <option value="Politics">Politics</option>
             </select>
+            
           </div>
           <button
             className="btn waves-effect waves-light right"
@@ -88,4 +89,4 @@ class GistForm extends Component {
   }
 }
 
-export default GistForm;
+export default SuggestionForm;
