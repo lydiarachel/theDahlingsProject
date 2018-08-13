@@ -15,6 +15,22 @@ class SignIn extends Component {
               <label for="password">Password</label>
             </div>
           </div>
+          <button
+            className="btn waves-effect waves-light right"
+            type="submit"
+            name="action"
+          >
+            Sign In
+            <i className="material-icons left"></i>
+          </button>
+          <button
+            className="btn waves-effect waves-light right"
+            type="submit"
+            name="action"
+          >
+            Create
+            <i className="material-icons right"></i>
+          </button>
         </form>
       </div>
     );
