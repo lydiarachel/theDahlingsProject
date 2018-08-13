@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Categories from "../Categories";
 import './SideBar.css';
 
 const SideBar = props => (
@@ -18,16 +19,7 @@ const SideBar = props => (
       <li>
         <a className="collapsible-header waves-effect"><i className="material-icons">folder</i>Gist-egories</a>
         <div className="collapsible-body">
-          <ul>
-              <li><a href="#!">Art</a></li>
-              <li><a href="#!">Bussines</a></li>
-              <li><a href="#!">Culture</a></li>
-              <li><a href="#!">History</a></li>
-              <li><a href="#!">Science</a></li>
-              <li><a href="#!">Tech</a></li>
-              <li><a href="#!">Politics</a></li>
-              <li><a href="#!">Popular</a></li>
-          </ul>
+          <Categories listId={null} listClass={null}/>
         </div>
       </li>
     </ul>
