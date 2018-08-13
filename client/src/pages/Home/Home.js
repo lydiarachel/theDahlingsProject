@@ -2,6 +2,7 @@ import React from "react";
 import SearchBar from "../../components/SearchBar";
 import Heading from "../../components/Heading";
 import ViewCard from "../../components/ViewCard";
+import ActionButtons from "../../components/ActionButtons";
 import "./Home.css";
 
 const Home = () => (
@@ -10,6 +11,10 @@ const Home = () => (
       <SearchBar />
     </div>
     
+    <div className="action-buttons">
+      <ActionButtons />
+    </div>
+
     <div className="title">
       <Heading>Top Rated Gists</Heading>
     </div>
