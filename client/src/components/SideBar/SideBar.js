@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Categories from "../Categories";
+import categories from "../../utils/Categories";
 import './SideBar.css';
 
 const SideBar = props => (
@@ -19,7 +19,13 @@ const SideBar = props => (
       <li>
         <a className="collapsible-header waves-effect"><i className="material-icons">folder</i>Gist-egories</a>
         <div className="collapsible-body">
-          <Categories listId={null} listClass={null}/>
+          <ul>
+            {
+              categories.map((category) => {
+                return <li data-id={category.id} key={category.id}><a href="#!">{category.label}</a></li>
+              })
+            }
+          </ul>
         </div>
       </li>
     </ul>
