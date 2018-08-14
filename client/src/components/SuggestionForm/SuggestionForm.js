@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import categories from "../../utils/Categories";
 class SuggestionForm extends Component {
   state = {
     suggestionTitle: "",
@@ -63,14 +64,11 @@ class SuggestionForm extends Component {
               onChange={this.handleChange}
             > 
               <option value='' disabled>Choose a Category</option>
-              <option value="Art">Art</option>
-              <option value="Automotive">Automotive</option>
-              <option value="Business">Business</option>
-              <option value="Culture">Culture</option>
-              <option value="History">History</option>
-              <option value="Science">Science</option>
-              <option value="Tech">Tech</option>
-              <option value="Politics">Politics</option>
+              {
+                categories.map((category) => {
+                  return <option value={category.id}>{category.label}</option>
+                })
+              }
             </select>
             
           </div>
