@@ -1,9 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from "react";
+import { Link, Redirect } from "react-router-dom";
+import categories from "../../utils/Categories";
+import API from "../../utils/API";
 import './SideBar.css';
 
-const SideBar = props => (
-  <ul id="slide-out" className="sidenav">
+class SideBar extends Component {
+
+  onCategoryClick = (categoryId) => {
+    API.getCategoryGist(categoryId)
+        .then(result => {
+            console.log(result);
+            
+            // do something with the results here
+            <Redirect push to="/search-results" />
+        })
+        .catch(err => console.log(err));
+  }
+
+  render() {
+    return (
+      <ul id="slide-out" className="sidenav">
     {/* Logo */}
     <li>
       <h4>
@@ -19,14 +35,14 @@ const SideBar = props => (
         <a className="collapsible-header waves-effect"><i className="material-icons">folder</i>Gist-egories</a>
         <div className="collapsible-body">
           <ul>
-              <li><a href="#!">Art</a></li>
-              <li><a href="#!">Bussines</a></li>
-              <li><a href="#!">Culture</a></li>
-              <li><a href="#!">History</a></li>
-              <li><a href="#!">Science</a></li>
-              <li><a href="#!">Tech</a></li>
-              <li><a href="#!">Politics</a></li>
-              <li><a href="#!">Popular</a></li>
+            {
+              categories.map((category) => {
+                return <li data-id={category.id} 
+                key={category.id}
+                onClick={() => this.onCategoryClick(category.id)}
+                ><a href="#!">{category.label}</a></li>
+              })
+            }
           </ul>
         </div>
       </li>
@@ -51,6 +67,9 @@ const SideBar = props => (
       </Link>
     </li>
   </ul>
-);
+    )
+  }
+  
+}
 
 export default SideBar;

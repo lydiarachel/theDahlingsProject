@@ -1,0 +1,15 @@
+.title {
+    margin-left: 4rem;
+    margin-bottom: 2rem;
+}
+
+.row {
+    padding: 0 2rem;
+}
+
+@media screen and (max-width: 900px) {
+    .title {
+        text-align: center;
+        margin-left: 0rem;
+    }
+}

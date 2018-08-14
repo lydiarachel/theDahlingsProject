@@ -25,6 +25,9 @@ export default {
     getUser: id => {
         return axios.get('/user' + id)
     },
+    getSearchSuggestion: Search => {
+        return axios.get('/suggestion/multi' + Search)
+    },
     getSuggestion: () => {
         return axios.get('/suggestion/multi')
     },
