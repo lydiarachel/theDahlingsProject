@@ -133,7 +133,7 @@ router.get('/user/find', (req, res, next) => {
 
 // Search for Gists with client provided parameters
 // Example url `/gist/multi?category=art
-router.get('/gist/multi', (req, res, next) => {
+router.get('/gist/find', (req, res, next) => {
     const search_params = req.query
     // controller function to search for gists
     control.Gist.find(search_params)
@@ -149,7 +149,7 @@ router.get('/gist/multi', (req, res, next) => {
 })
 
 // Search for comments using parameters provided by client
-router.get('/comment/multi', (req, res, next) => {
+router.get('/comment/find', (req, res, next) => {
     const params = req.query
     // controller function to search for comments in database matching provided parameters
     control.Comment.find(params)
@@ -171,7 +171,7 @@ router.get('/comment/multi', (req, res, next) => {
 })
 
 // Get suggestions
-router.get('/suggestion/multi', (req, res, next) => {
+router.get('/suggestion/find', (req, res, next) => {
     // controller function to get all suggestions from database
     control.Suggestion.findAll()
         .then(suggestions => {
@@ -197,7 +197,7 @@ router.get('/suggestion/multi', (req, res, next) => {
 // CATCH ALL ROUTE
 router.use('/*', (req, res, next) => {
     res.json({
-        message: 'Success!!'
+        message: 'Route not found'
     })
 })
 
