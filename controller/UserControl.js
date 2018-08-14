@@ -8,15 +8,15 @@ exports.create = new_user => {
     return User.create(new_user)
 }
 
-// Find single user from database
-exports.find = user_id =>{
-    const user_obj_id = mongoose.Types.ObjectId(user_id)
-    return User.findById(user_obj_id)
+/**
+ * controller function to find users in database
+ * if no params are given it will return all user documents in `users` collection
+ * @param {Object} params 
+ */
+exports.find = params =>{
+    return User.find(params)
 }
 
-// Find All users
-exports.findAll = () => {
-    return User.find()
-}
+
 
 

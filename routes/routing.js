@@ -109,9 +109,9 @@ router.post('/suggestion/create', (req, res, next) => {
 // ================================================
 
 // Gets all users
-router.get('/user/all', (req, res, next) => {
+router.get('/user/find', (req, res, next) => {
     // Use controller function to find all users
-    control.User.findAll()
+    control.User.find()
         .then(users => {
             if (users) {
                 res.status(200).json(users)
@@ -129,26 +129,6 @@ router.get('/user/all', (req, res, next) => {
         })
 })
 
-
-// Gets single User (will return fully populated User)
-router.get('/user/:user_id', (req, res, next) => {
-    const user_id = req.params.user_id
-    // controller function to find single user
-    control.User.find(user_id)
-        .then(data =>{
-            if (data){
-                res.json(data)
-            } else {
-                res.status(404).send('User not found')
-            }
-        })
-        .catch(err =>{
-            res.sendStatus(500).json({
-                Error: err,
-                message: 'Internal server error'
-            })
-        })
-})
 
 
 // Search for Gists with client provided parameters
@@ -213,9 +193,13 @@ router.get('/suggestion/multi', (req, res, next) => {
 
 // END GET ROUTES
 // ================================================
-router.use(function(req, res) {
-    res.sendFile(path.join(__dirname, "../client/build/index.html"));
-  });
+
+// CATCH ALL ROUTE
+router.use('/*', (req, res, next) => {
+    res.json({
+        message: 'Success!!'
+    })
+})
 
 
 module.exports = {
