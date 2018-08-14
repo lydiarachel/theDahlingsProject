@@ -17,32 +17,89 @@ router.get('/testRoute', (req, res, next) => {
 // Create new User
 router.post('/user/create', (req, res, next) => {
     const new_user = req.body
-    // to-do: save new user to db with controller function
+    // controller function to create new user with new_user object 
     control.User.create(new_user)
         .then(data =>{
-            res.send(data)
+            if (data) {
+                res.status(200).json(data)
+            } else {
+                res.status(404).json({
+                    message: 'Unable to create user with provided input'
+                })
+            }
+        })
+        .catch(err => {
+            res.status(500).json({
+                message: 'Internal server error',
+                Error: err
+            })
         })
 })
 
 // Create new Gist
 router.post('/gist/create', (req, res, next) => {
     const new_gist = req.body
-    // to-do: save new Gist to db with controller function
-    res.sendStatus(200)
+    // controller function to add new gist to database
+    control.Gist.create(new_gist)
+        .then(gist_in_db => {
+            if (gist_in_db) {
+                res.status(200).json(gist_in_db)
+            } else {
+                res.status(404).json({
+                    message: 'Unable to save gist'
+                })
+            }
+        })
+        .catch(err => {
+            res.status(500).json({
+                message: 'Internal server error',
+                Error: err
+            })
+        })
 })
 
 // Create new Comment
 router.post('/comment/create', (req, res, next) => {
     const new_comment = req.body
-    // to-do: save new Gist to db with controller function
-    res.sendStatus(200)
+    // controller function to add new comment to database
+    control.Comment.create(new_comment)
+        .then(comment_in_database => {
+            if (comment_in_database) {
+                res.status(200).json(comment_in_database)
+            } else {
+                res.status(404).json({
+                    message: 'Unable to create comment'
+                })
+            }
+        })
+        .catch(err => {
+            res.status(500).json({
+                message: 'Error saving comment',
+                Error: err
+            })
+        })
 })
 
 // Create new Suggestion
 router.post('/suggestion/create', (req, res, next) => {
     const new_suggestion = req.body
-    // to-do: save new Gist to db with controller function
-    res.sendStatus(200)
+    // controller function to add a new suggestion to database
+    control.Suggestion.create(new_suggestion)
+        .then(suggestion_in_db =>{
+            if (suggestion_in_db) {
+                res.status(200).json(suggestion_in_db)
+            } else {
+                res.status(404).json({
+                    message: 'Unable to create suggestion'
+                })
+            }
+        })
+        .catch(err =>{
+            res.status(500).json({
+                message: 'Internal server error',
+                Error: err
+            })
+        })
 })
 
 // END POST ROUTES
@@ -51,18 +108,38 @@ router.post('/suggestion/create', (req, res, next) => {
 // START GET ROUTES
 // ================================================
 
-// Get single User (will return fully populated User)
-router.get('/user:user_id', (req, res, next) => {
+// Gets all users
+router.get('/user/all', (req, res, next) => {
+    // Use controller function to find all users
+    control.User.findAll()
+        .then(users => {
+            if (users) {
+                res.status(200).json(users)
+            }   else {
+                res.status(404).json({
+                    message: 'No users found in database'
+                })
+            }
+        })
+        .catch(err => {
+            res.status(500).json({
+                message: 'Internal server error',
+                Error: err
+            })
+        })
+})
+
+
+// Gets single User (will return fully populated User)
+router.get('/user/:user_id', (req, res, next) => {
     const user_id = req.params.user_id
-    // to-do: find user by id in db with controller function
+    // controller function to find single user
     control.User.find(user_id)
         .then(data =>{
             if (data){
                 res.json(data)
             } else {
-                res.sendStatus(404).json({
-                    message: 'User not found'
-                })
+                res.status(404).send('User not found')
             }
         })
         .catch(err =>{
@@ -73,31 +150,65 @@ router.get('/user:user_id', (req, res, next) => {
         })
 })
 
-// Get single Gist (will return fully populated Gist)
-router.get('/gist:gist_id', (req, res, next) => {
-    const gist_id = req.params.gist_id
-    // to-do: find gist by id in db with controller function
-    res.send(gist_id)
-})
 
 // Search for Gists with client provided parameters
+// Example url `/gist/multi?category=art
 router.get('/gist/multi', (req, res, next) => {
-    const search_params = req.body
-    // to-do: search for gists with parameters in db with controller function
-    res.sendStatus(200)
+    const search_params = req.query
+    // controller function to search for gists
+    control.Gist.find(search_params)
+        .then(gists => {
+            res.status(200).json(gists)
+        })
+        .catch(err => {
+            res.status(500).json({
+                message: 'Internal server error',
+                Error: err
+            })
+        })
 })
 
-// Search for Gists by category
-router.get('/gist/multi:category', (req, res, next) => {
-    const category = req.params.category
-    // to-do: search for gists by category in db with controller function
-    res.send(category)
+// Search for comments using parameters provided by client
+router.get('/comment/multi', (req, res, next) => {
+    const params = req.query
+    // controller function to search for comments in database matching provided parameters
+    control.Comment.find(params)
+        .then(comments => {
+            if (comments.length >= 0) {
+                res.status(200).json(comments)
+            } else {
+                res.status(404).json({
+                    message: 'No comments found',
+                })
+            }
+        })
+        .catch(err => {
+            res.status(500).json({
+                message: 'Database error',
+                Error: err
+            })
+        })
 })
 
 // Get suggestions
 router.get('/suggestion/multi', (req, res, next) => {
-    // to-do: get all suggestions in db with controller function
-    res.sendStatus(200)
+    // controller function to get all suggestions from database
+    control.Suggestion.findAll()
+        .then(suggestions => {
+            if (suggestions.length >= 0) {
+                res.status(200).json(suggestions)
+            } else {
+                res.status(404).json({
+                    message: 'No suggestions found in database'
+                })
+            }
+        })
+        .catch(err => {
+            res.status(500).json({
+                message: 'Internal server error',
+                Error: err
+            })
+        })
 })
 
 // END GET ROUTES
