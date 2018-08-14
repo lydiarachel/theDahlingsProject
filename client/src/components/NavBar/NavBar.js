@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SideBar from "../SideBar";
-import Categories from "../Categories";
+import categories from "../../utils/Categories";
 import './NavBar.css';
 
 const NavBar = props => (
@@ -43,7 +43,13 @@ const NavBar = props => (
     <SideBar />
 
     {/* Dropdown Structure */}
-    <Categories listId={'dropdown1'} listClass={'dropdown-content'}/>
+    <ul id='dropdown1' className="dropdown-content">
+      {
+        categories.map((category) => {
+          return <li data-id={category.id} key={category.id}><a href="#!">{category.label}</a></li>
+        })
+      }
+    </ul>
   </div>
 );
 
