@@ -58,7 +58,6 @@ class CommentBox extends Component{
                     <Comment
                         key={comment.id}
                         commentProp={comment}
-                        colorProp="blue"
                     />
                 ))}
                 </div>
@@ -70,7 +69,7 @@ class CommentBox extends Component{
                     type="text"
                     placeholder="Enter Comment"
                 />
-                <button onClick={this.handleFormSubmit}>Submit</button>
+                <button onClick={this.handleFormSubmit}>Comment</button>
                 </form>
                 
 
