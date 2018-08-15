@@ -13,23 +13,14 @@ export default {
     createSuggestion: suggestionData => {
         return axios.post('/suggestion/create', suggestionData)
     },
-    getGist: id => {
-        return axios.get('/gist' + id)
+    findGists: params => {
+        return axios.get(`/gist/find${params ? '?' + Object.keys(params)[0] + '=' + Object.values(params)[0] : ''}`)
     },
-    getMultiGist: search =>{
-        return axios.get('/gist/multi', search)
+    findUser: params => {
+        return axios.get(`/user/find${params ? '?' + Object.keys(params)[0] + '=' + Object.values(params)[0] : ''}`)
     },
-    getCategoryGist: category => {
-        return axios.get('/gist/multi' + category)
-    },
-    getUser: id => {
-        return axios.get('/user' + id)
-    },
-    getSearchSuggestion: Search => {
-        return axios.get('/suggestion/multi' + Search)
-    },
-    getSuggestion: () => {
-        return axios.get('/suggestion/multi')
+    findSuggestion: params => {
+        return axios.get(`/suggestion/find${params ? '?' + Object.keys(params)[0] + '=' + Object.values(params)[0] : ''}`)
     },
     deleteSuggestion: id => {
         return axios.delete('/suggestion' + id)
