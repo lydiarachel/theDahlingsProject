@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 const gistSchema = new Schema({
   title: { type: String, required: true },
-  author: { type: String, required: false },
+  author: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'}],
   body: {type: String, required: true },
   date: { type: Date, default: Date.now },
   category:{type: String, required: true},
