@@ -1,8 +1,10 @@
-const db = require("../db/models");
-const mongoose = require('mongoose')
 // This file empties the Books collection and inserts the books below
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/test", {useNewUrlParser: true });
+const db = require("../db/models");
+const mongoose = require('mongoose')
+require('dotenv').config({path:'./config/.env'})
+
+const connection = mongoose.connect(process.env.MLAB_DB_URI || 'mongodb://localhost:27017/test', {useNewUrlParser: true });
 const gistSeed = [
   {
     _id: 123456,
@@ -291,7 +293,7 @@ const userSeed = [
   }
 ];
 
-db.User.remove()
+const seedUsers = db.User.remove()
   .then(() => db.User.collection.insertMany(userSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
@@ -302,7 +304,7 @@ db.User.remove()
     process.exit(1)
   })
 
-db.Gist.remove()
+const seedGists = db.Gist.remove()
   .then(() => db.Gist.collection.insertMany(gistSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
@@ -313,4 +315,7 @@ db.Gist.remove()
     process.exit(1);
   })
 
-
+  // close database connection when complete
+Promise.all([seedUsers,seedGists]).then(() => {
+  connection.close()
+})
