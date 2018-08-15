@@ -290,12 +290,19 @@ const userSeed = [
     imageUrl: ""
   }
 ];
+
 db.User.remove()
   .then(() => db.User.collection.insertMany(userSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
-  }).then(()=> db.Gist.remove()
+  })
+  .catch(err => {
+    console.log(err);
+    process.exit(1)
+  })
+
+db.Gist.remove()
   .then(() => db.Gist.collection.insertMany(gistSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
@@ -305,5 +312,5 @@ db.User.remove()
     console.error(err);
     process.exit(1);
   })
-)
+
 
