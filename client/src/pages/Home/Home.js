@@ -10,6 +10,7 @@ class Home extends React.Component {
   state = {
     results: []
   }
+  
   componentDidMount() {
     API.findGists()
       .then(result => {
@@ -22,6 +23,7 @@ class Home extends React.Component {
   }
 
   render() {
+    // don't render the page untill state.results populate
     if (this.state.results.length === 0) {
       return null;
     }
