@@ -6,7 +6,7 @@ const ViewCard = props => (
         <div className="col s12 m6 l4">
           <div className="card medium">
             <div className="card-content white">
-              <h5><Link to="/gist-page">
+              <h5><Link to={`/gist/${props.id}`}>
                   {props.title}
                 </Link>
               </h5>
