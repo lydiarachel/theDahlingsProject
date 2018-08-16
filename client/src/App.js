@@ -25,8 +25,9 @@ class App extends Component {
           <Route exact path="/about" component={About} />
           <Route exact path="/auth" component={Auth} />
           <Route exact path="/gist-page" component={Gist} />
-          <Route exact path = '/add-gist' component ={AddGist} />
-          <Route exact path = '/add-suggestion' component = {AddSuggestion} />
+          <Route exact path="/add-gist" component ={AddGist} />
+          <Route exact path="/add-suggestion" component = {AddSuggestion} />
+          <Route exact path="/search/:category" component = {Search} />
         </div>
       </Router>
     )

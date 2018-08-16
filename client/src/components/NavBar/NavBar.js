@@ -6,15 +6,6 @@ import API from "../../utils/API";
 import './NavBar.css';
 
 class NavBar extends Component {
-  onCategoryClick = (categoryId) => {
-    API.getCategoryGist(categoryId)
-        .then(result => {
-            console.log(result);
-            // do something with the results here
-            <Redirect push to="/search-results" />
-        })
-        .catch(err => console.log(err));
-  }
 
   render() {
     return (
@@ -61,9 +52,9 @@ class NavBar extends Component {
         categories.map((category) => {
           return <li 
           data-id={category.id} 
-          key={category.id}
-          onClick={() => this.onCategoryClick(category.id)}
-          ><a href="#!">{category.label}</a></li>
+          key={category.id}>
+            <Link to={`/search/${category.id}`}>{category.label}</Link>
+          </li>
         })
       }
     </ul>

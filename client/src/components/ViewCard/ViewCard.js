@@ -12,7 +12,7 @@ const ViewCard = props => (
               </h5>
               
               <p>Author: {props.author}</p>
-              <p>Category: {props.category.charAt(0).toUpperCase()+ props.category.slice(1)}</p>
+              <p>Category: <span className="gist-category">{props.category}</span></p>
               <p><i className="tiny material-icons search-icon">thumb_up</i> {props.likes}</p>
               <p>Created at: {props.date}</p>
             
