@@ -1,7 +1,6 @@
 // Handle all http requests for api calls
 //  - all html routing handled by react-router-dom
 const router = require('express').Router()
-const path = require("path");
 
 const control = require('../controller')
 require('../db/Connection')
@@ -202,6 +201,4 @@ router.use('/*', (req, res, next) => {
 })
 
 
-module.exports = {
-    router
-}
+module.exports = router
