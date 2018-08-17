@@ -1,20 +1,7 @@
 import React, { Component } from 'react';
 import Comment from '../Comment';
+import API from "../../utils/API";
 
-let fakeComments = [
-    {
-       id: 1,
-        text:"I didn't really get much out of this."
-    },
-    {
-        id: 2,
-        text: "Don't listen to that other comment"
-    },
-    {
-        id: 3,
-        text: "This was super helpful"
-    }
-]
 class CommentBox extends Component{
     state = {
         commentInput:""
@@ -38,12 +25,13 @@ class CommentBox extends Component{
         } else {
             //to do .. add this to database rather than fakeComments Array above
             //when we do this, we will not need to pass id, that will come from the db
-          fakeComments.push(    {
-            id: fakeComments.length + 1,
-             text:(this.state.commentInput)
-         })
+          API.createComment({
+              comment:this.state.commentInput,
+              gistId: this.props._id
+            })
+        
         }
-        console.log(fakeComments);
+        
         this.setState({
           commentInput: ""
         });
@@ -54,7 +42,7 @@ class CommentBox extends Component{
             <div>
                 <h2>Comments </h2>
                 <div>
-                {fakeComments.map(comment => (
+                {this.props.comments.map(comment => (
                     <Comment
                         key={comment.id}
                         commentProp={comment}
