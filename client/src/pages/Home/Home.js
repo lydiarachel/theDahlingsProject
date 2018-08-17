@@ -8,7 +8,10 @@ import "./Home.css";
 
 class Home extends React.Component {
   state = {
-    results: []
+    search: "",
+    gists: [],
+    results: [],
+    error: ""
   }
   
   componentDidMount() {
@@ -22,6 +25,35 @@ class Home extends React.Component {
       .catch(err => console.log(err));
   }
 
+  // Update search value on every change
+  handleInputChange = event => {
+    this.setState({ search: event.target.value });
+  };
+
+  // When Enter is pressed
+  handleKeyPress = event =>  {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      console.log('Enter was pressed');
+      console.log("Search query", {title: {$regex: `*${this.state.search}*`}})
+
+      // Request to the database
+      API.findGists({title: {$regex: `*${this.state.search}*`}}) // look for titles that have searched string inside
+      .then(res => {
+        if (res.data.status === "error") {
+          throw new Error(res.data.message);
+        }
+        this.setState({ 
+          gists: res.data,
+          search: "",
+        });
+
+        console.log("Results from search API", res.data)
+      })
+      .catch(err => this.setState({ error: err.message }));
+    }
+  }
+
   render() {
     // don't render the page untill state.results populate
     if (this.state.results.length === 0) {
@@ -31,7 +63,9 @@ class Home extends React.Component {
     return (
         <div>
         <div className="search-box">
-          <SearchBar />
+          <SearchBar search={this.state.search} 
+          handleInputChange={this.handleInputChange}
+          handleKeyPress={this.handleKeyPress}/>
         </div>
         
         <div className="action-buttons">
@@ -51,6 +85,7 @@ class Home extends React.Component {
               likes={result.liked}
               date={result.date}
               key={result._id}
+              id={result._id}
               />
             ))
           }

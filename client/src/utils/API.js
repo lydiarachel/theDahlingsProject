@@ -36,6 +36,6 @@ export default {
     // AUTHENTICATION
     loginGoogle: () => {
         return axios.get('/auth/google')
-    }
+
 
 }

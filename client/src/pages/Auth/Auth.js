@@ -7,12 +7,8 @@ class Auth extends Component {
   render() {
     return (
       <div>
-        <div className="search-box">
-          <SearchBar />
-        </div>
-
         <div className="title">
-          <Heading>Top Rated Gists</Heading>
+          <Heading>Create User Profile</Heading>
         </div>
         <div className="row">
           <UserForm />

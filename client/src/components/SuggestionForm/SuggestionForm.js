@@ -19,8 +19,12 @@ class SuggestionForm extends Component {
 
   handleFormSubmit = (event, data) => {
     event.preventDefault();
-    if(!this.state.suggestionBody && !this.state.suggestionTitle && !this.state.gistCategory){
-      alert('All fields need to be field out')
+    if (
+      !this.state.suggestionBody &&
+      !this.state.suggestionTitle &&
+      !this.state.gistCategory
+    ) {
+      alert("All fields need to be field out");
     }
     API.createSuggestion({
       title: this.state.suggestionTitle,
@@ -59,18 +63,24 @@ class SuggestionForm extends Component {
           </div>
           <div className="input-field col s6">
             <select
-              className = 'browser-default'
               value={this.state.gistCategory}
               onChange={this.handleChange}
-            > 
-              <option value='' disabled>Choose a Category</option>
-              {
-                categories.map((category) => {
-                  return <option value={category.id}>{category.label}</option>
-                })
-              }
+            >
+              <option value="" disabled>
+                Choose a Category
+              </option>
+              {categories.map(category => {
+                return (
+                  <option
+                    data-id={category.id}
+                    key={category.id}
+                    value={category.id}
+                  >
+                    {category.label}
+                  </option>
+                );
+              })}
             </select>
-            
           </div>
           <button
             className="btn waves-effect waves-light right"
