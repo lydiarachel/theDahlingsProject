@@ -30,6 +30,12 @@ export default {
     },
     deleteGist: id => {
         return axios.delete('/gist' + id)
+    },
+
+
+    // AUTHENTICATION
+    loginGoogle: () => {
+        return axios.get('/auth/google')
     }
 
 }
