@@ -58,18 +58,23 @@ class GistForm extends Component {
           </div>
           <div className="input-field col s6">
             <select
-              className="browser-default"
               value={this.state.gistCategory}
               onChange={this.handleChange}
             >
               <option value="" disabled>
                 Choose a Category
               </option>
-              {
-                categories.map((category) => {
-                  return <option value={category.id}>{category.label}</option>
-                })
-              }
+              {categories.map(category => {
+                return (
+                  <option
+                    data-id={category.id}
+                    key={category.id}
+                    value={category.id}
+                  >
+                    {category.label}
+                  </option>
+                );
+              })}
             </select>
           </div>
           <button

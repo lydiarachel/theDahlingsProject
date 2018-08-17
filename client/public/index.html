@@ -18,14 +18,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
+        M.AutoInit();
         const elems = document.querySelectorAll('.tooltipped');
         const instances = M.Tooltip.init(elems);
-
         const dropdowns = document.querySelectorAll('.dropdown-trigger')
         for (var i = 0; i < dropdowns.length; i++){
           M.Dropdown.init(dropdowns[i]);
         }
-
         const sidenavs = document.querySelectorAll('.sidenav')
         for (var i = 0; i < sidenavs.length; i++){
           M.Sidenav.init(sidenavs[i]);

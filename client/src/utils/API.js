@@ -30,6 +30,9 @@ export default {
     },
     deleteGist: id => {
         return axios.delete('/gist' + id)
+    },
+    authUser:login => {
+        return axios.post('/user/auth', login)
     }
 
 }
