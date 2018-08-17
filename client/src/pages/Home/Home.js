@@ -61,7 +61,7 @@ class Home extends React.Component {
     }
 
     return (
-        <div>
+        <div className="homepage">
         <div className="search-box">
           <SearchBar search={this.state.search} 
           handleInputChange={this.handleInputChange}

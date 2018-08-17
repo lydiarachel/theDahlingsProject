@@ -7,11 +7,19 @@
 #search {
     font-size: 60px;
     padding-left: 6rem;
+    height: 100%;
+    width: fill-available;
+    border-bottom: 3px solid var(--cyan);   
+}
+
+#search::placeholder {
+    color: var(--white);
 }
 
 .search-icon {
     font-size: 60px;
     line-height: 2.5;
+    color: var(--cyan);
 }
 
 @media screen and (max-width: 900px) {
@@ -28,6 +36,7 @@
     
     .search-icon {
         font-size: 40px;
+        color: var(--cyan);
     }
 }
 

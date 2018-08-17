@@ -7,13 +7,17 @@ import './NavBar.css';
 class NavBar extends Component {
   render() {
     return (
-      <div>
+      <div className="navbar-fixed">
         <nav className="nav-extended">
           <div className="nav-wrapper">
 
             {/* Logo */}
             <Link to='/' className="brand-logo">
-              Get the Gist
+              <div className="gist-logo">
+                <span id="gist-logo-horizontal">get the</span>
+                <span id="gist-logo-vertical">gist</span>
+              </div>
+             
             </Link>
 
             <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
@@ -25,17 +29,17 @@ class NavBar extends Component {
                 </a>
               </li>
               <li>
-                <Link to='/search-results' className="waves-effect">
+                <Link to='/search-results' className="waves-effect waves-light">
                   Search
                 </Link>
               </li>
               <li>
-                <Link to='/about' className="waves-effect">
+                <Link to='/about' className="waves-effect waves-light">
                   About
                 </Link>
               </li>
               <li>
-                <Link to='/auth' className="waves-effect">
+                <Link to='/auth' className="waves-effect waves-light">
                   Log In/Sign Out
                 </Link>
               </li>
