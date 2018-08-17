@@ -1,18 +1,21 @@
 import React, { Component } from "react";
-import SearchBar from "../../components/SearchBar";
 import Heading from "../../components/Heading";
-import UserForm from "../../components/UserForm";
+import SignInForm from "../../components/SignInForm";
+import GoogleAuthBtn from "../../components/GoogleAuthBtn";
+
 class Auth extends Component {
   state = {};
   render() {
     return (
       <div>
         <div className="title">
-          <Heading>Create User Profile</Heading>
+          <Heading>Welcone To Get the Gist</Heading>
         </div>
         <div className="row">
-          <UserForm />
+          <SignInForm />
         </div>
+
+        <GoogleAuthBtn />
       </div>
     )
   }

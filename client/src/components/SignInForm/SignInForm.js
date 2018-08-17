@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-class SignIn extends Component {
+
+class SignInForm extends Component {
   state = {
     email: '',
     password: '',
@@ -71,4 +72,4 @@ class SignIn extends Component {
     );
   }
 }
-export default SignIn;
+export default SignInForm;
