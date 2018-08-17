@@ -1,0 +1,50 @@
+nav {
+    background-color: var(--dark-gray);
+}
+.nav-wrapper {
+    background: var(--dark-gray);
+    font-family: 'Cantata One', serif;
+    border-bottom: 1px solid var(--cyan);
+}
+
+#nav-mobile li a {
+    font-size: 1.1rem;
+}
+nav ul li:hover {
+    background-color: var(--cyan);
+}
+
+.gist-logo {
+    height: 100%;
+    margin-left: 2rem;
+    font-size: 1.5rem;
+}
+#gist-logo-horizontal {
+    display: inline-block;
+    width: 50px;
+    vertical-align: top;
+    word-wrap: break-word;
+    line-height: 2rem;
+}
+
+#gist-logo-vertical {
+    display: inline-block;
+    /* Safari */
+    -webkit-transform: rotate(-90deg);
+    /* Firefox */
+    -moz-transform: rotate(-90deg);
+    /* IE */
+    -ms-transform: rotate(-90deg);
+    /* Opera */
+    -o-transform: rotate(-90deg);
+    
+    background: var(--white);
+    color: var(--dark-gray);
+    text-align: center;
+    width: 64px;
+    letter-spacing: 1px;
+}
+
+a.brand-logo {
+    height: 100%;
+}

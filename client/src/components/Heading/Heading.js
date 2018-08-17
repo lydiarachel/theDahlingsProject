@@ -3,7 +3,7 @@ import './Heading.css'
 
 const Heading = props => (
     <div>
-        <h3>{props.children}</h3>
+        <h4 className="heading">{props.children}</h4>
     </div>
 )
 

@@ -5,10 +5,14 @@
 .title {
     margin-left: 4rem;
     margin-bottom: 2rem;
+    color: var(--white);
+    border-bottom: 2px solid var(--cyan);
+    width: fit-content;
 }
 
 .row {
     padding: 0 2rem;
+
 }
 
 @media screen and (max-width: 900px) {

@@ -1,0 +1,17 @@
+/* COLORS */
+:root {
+    --dark-gray: #333;
+    --light-gray: #eee;
+    --white: #fafafa;
+    --cyan: #00bcd4; 
+    --black: #000000;
+}
+
+/* FONTS */
+/* font-family: 'Cantata One', serif; */
+
+body {
+    background: var(--dark-gray);
+    color: var(---white);
+    box-sizing: border-box;
+}

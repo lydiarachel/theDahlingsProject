@@ -2,9 +2,9 @@ import React from "react";
 import './SearchBar.css';
 
 const SearchBar = props => (
-    <div className="nav-wrapper search-box">
+    <div className="search-box">
       <form>
-        <div className="input-field grey lighten-1">
+        <div className="input-field">
           <input 
           value={props.search} 
           onChange={props.handleInputChange} 
