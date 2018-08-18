@@ -12,7 +12,8 @@ const gistSeed = [
     body:
       "Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.\n\nQuisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.\n\nVestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.\n\nIn congue. Etiam justo. Etiam pretium iaculis justo.",
     author: mongoose.Types.ObjectId('dfa2e0e0c2961ecdc692a06e'),
-    category: "tech"
+    category: "tech",
+    liked: 25
   },
   {
     _id: mongoose.Types.ObjectId('923c06cd0123edd9099b025d'),
@@ -20,7 +21,8 @@ const gistSeed = [
     body:
       "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.\n\nNullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.",
     author: mongoose.Types.ObjectId('dfa2e0e0c2961ecdc692a06e'),
-    category: "art"
+    category: "art",
+    liked: 20
   },
   {
     _id: mongoose.Types.ObjectId('923c06cd0123edd9099b025e'),
@@ -28,7 +30,8 @@ const gistSeed = [
     body:
       "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.\n\nDuis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.\n\nIn sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.\n\nSuspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.",
     author: mongoose.Types.ObjectId('c41f7728abe63539b818e64a'),
-    category: "tech"
+    category: "tech",
+    liked: 35
   },
   {
     _id: mongoose.Types.ObjectId('0efe86210123edd9099b025f'),
@@ -36,7 +39,8 @@ const gistSeed = [
     body:
       "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n\nEtiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.\n\nPraesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.\n\nCras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
     author: mongoose.Types.ObjectId('c41f7728abe63539b818e64a'),
-    category: "history"
+    category: "history",
+    liked: 15
   },
   {
     _id: mongoose.Types.ObjectId('db6be4010123edd9099b0260'),
@@ -44,7 +48,8 @@ const gistSeed = [
     body:
       "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.\n\nMauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.\n\nNullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.\n\nIn quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.",
     author: mongoose.Types.ObjectId('c41f7728abe63539b818e64a'),
-    category: "art"
+    category: "art",
+    liked: 23
   },
   {
     _id: mongoose.Types.ObjectId('db6be4010123edd9099b0261'),
@@ -52,7 +57,8 @@ const gistSeed = [
     body:
       "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.\n\nSuspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.\n\nMaecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.",
     author: mongoose.Types.ObjectId('c41f7728abe63539b818e64a'),
-    category: "art"
+    category: "art",
+    liked: 27
   },
   {
     _id: mongoose.Types.ObjectId('923c06cd0123edd9099b0262'),
@@ -60,7 +66,8 @@ const gistSeed = [
     body:
       "Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.\n\nInteger tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.",
     author: mongoose.Types.ObjectId('c41f7728abe63539b818e64a'),
-    category: "business"
+    category: "business",
+    liked: 19
   },
   {
     _id: mongoose.Types.ObjectId('db6bd8490123edd9099b0263'),
@@ -68,7 +75,8 @@ const gistSeed = [
     body:
       "Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.\n\nSed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.\n\nPellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.\n\nCum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
     author: mongoose.Types.ObjectId('c41f7728abe63539b818e64a'),
-    category: "tech"
+    category: "tech",
+    liked: 27
   },
   {
     _id: mongoose.Types.ObjectId('db6be4010123edd9099b0264'),
@@ -76,7 +84,8 @@ const gistSeed = [
     body:
       "Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.\n\nPraesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.\n\nCras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
     author: mongoose.Types.ObjectId('c41f7728abe63539b818e64a'),
-    category: "tech"
+    category: "tech",
+    liked: 20
   },
   {
     _id: mongoose.Types.ObjectId('923c06cd0123edd9099b0265'),
@@ -84,7 +93,8 @@ const gistSeed = [
     body:
       "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.\n\nSuspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.\n\nMaecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.\n\nCurabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",
     author: mongoose.Types.ObjectId('e45b76c5c775c263f01ddde4'),
-    category: "art"
+    category: "art",
+    liked: 32
   },
   {
     _id: mongoose.Types.ObjectId('db6bd8490123edd9099b0266'),
@@ -92,7 +102,8 @@ const gistSeed = [
     body:
       "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n\nEtiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.\n\nPraesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.\n\nCras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
     author: mongoose.Types.ObjectId('e45b76c5c775c263f01ddde4'),
-    category: "tech"
+    category: "tech",
+    liked: 18
   },
   {
     _id: mongoose.Types.ObjectId('db6be4010123edd9099b0267'),
@@ -100,7 +111,8 @@ const gistSeed = [
     body:
       "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.\n\nIn quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.",
     author: mongoose.Types.ObjectId('e45b76c5c775c263f01ddde4'),
-    category: "art"
+    category: "art",
+    liked: 30
   },
   {
     _id: mongoose.Types.ObjectId('923c06cd0123edd9099b0268'),
@@ -108,7 +120,8 @@ const gistSeed = [
     body:
       "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n\nProin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.",
     author: mongoose.Types.ObjectId('e45b76c5c775c263f01ddde4'),
-    category: "politics"
+    category: "politics",
+    liked: 14
   },
   {
     _id: mongoose.Types.ObjectId('db6be4010123edd9099b0269'),
@@ -116,7 +129,8 @@ const gistSeed = [
     body:
       "Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.\n\nIn sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
     author: mongoose.Types.ObjectId('e45b76c5c775c263f01ddde4'),
-    category: "tech"
+    category: "tech",
+    liked: 24
   },
   {
     _id: mongoose.Types.ObjectId('db6bd8490123edd9099b026a'),
@@ -124,7 +138,8 @@ const gistSeed = [
     body:
       "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.\n\nProin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.\n\nDuis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.",
     author: mongoose.Types.ObjectId('e45b76c5c775c263f01ddde4'),
-    category: "art"
+    category: "art",
+    liked: 17
   },
   {
     _id: mongoose.Types.ObjectId('db6be4010123edd9099b026b'),
@@ -132,7 +147,8 @@ const gistSeed = [
     body:
       "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.\n\nProin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.\n\nDuis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.",
     author: mongoose.Types.ObjectId('a929728a5394e821e79dc220'),
-    category: "art"
+    category: "art",
+    liked: 18
   },
   {
     _id: mongoose.Types.ObjectId('db6be4010123edd9099b026c'),
@@ -140,7 +156,8 @@ const gistSeed = [
     body:
       "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.\n\nNullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.",
     author: mongoose.Types.ObjectId('a929728a5394e821e79dc220'),
-    category: "science"
+    category: "science",
+    liked: 28
   },
   {
     _id: mongoose.Types.ObjectId('db6bd8490123edd9099b026d'),
@@ -148,7 +165,8 @@ const gistSeed = [
     body:
       "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.\n\nMauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",
     author: mongoose.Types.ObjectId('a929728a5394e821e79dc220'),
-    category: "science"
+    category: "science",
+    liked: 14
   },
   {
     _id: mongoose.Types.ObjectId('db6bd8490123edd9099b026e'),
@@ -156,7 +174,8 @@ const gistSeed = [
     body:
       "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n\nEtiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.\n\nPraesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.",
     author: mongoose.Types.ObjectId('a929728a5394e821e79dc220'),
-    category: "culture"
+    category: "culture",
+    liked: 17
   },
   {
     _id: mongoose.Types.ObjectId('b698283c709c6463252f12a7'),
@@ -164,7 +183,8 @@ const gistSeed = [
     body:
       "Phasellus in felis. Donec semper sapien a libero. Nam dui.\n\nProin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.",
     author: mongoose.Types.ObjectId('a929728a5394e821e79dc220'),
-    category: "culture"
+    category: "culture",
+    liked: 32
   },
   {
     _id: mongoose.Types.ObjectId('95f1a5cd0123edd9099b0270'),
@@ -172,7 +192,8 @@ const gistSeed = [
     body:
       "Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.\n\nInteger ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.\n\nNam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.\n\nCurabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",
     author: mongoose.Types.ObjectId('59a4d24202f62ef3b2d3dafc'),
-    category: "popular"
+    category: "popular",
+    liked: 15
   },
   {
     _id: mongoose.Types.ObjectId('95f1a5cd0123edd9099b0271'),
@@ -180,7 +201,8 @@ const gistSeed = [
     body:
       "Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.\n\nDuis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.\n\nDonec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.\n\nDuis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.",
     author: mongoose.Types.ObjectId('59a4d24202f62ef3b2d3dafc'),
-    category: "popular"
+    category: "popular",
+    liked: 29
   },
   {
     _id: mongoose.Types.ObjectId('db6bd8490123edd9099b0272'),
@@ -188,7 +210,8 @@ const gistSeed = [
     body:
       "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.\n\nDonec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.\n\nDuis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.",
     author: mongoose.Types.ObjectId('1226fb9f5d60517e93f585cf'),
-    category: "science"
+    category: "science",
+    liked: 13
   },
   {
     _id: mongoose.Types.ObjectId('95f1a5cd0123edd9099b0273'),
@@ -196,7 +219,8 @@ const gistSeed = [
     body:
       "Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.\n\nInteger tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.\n\nPraesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
     author: mongoose.Types.ObjectId('1226fb9f5d60517e93f585cf'),
-    category: "politics"
+    category: "politics",
+    liked: 12
   },
   {
     _id: mongoose.Types.ObjectId('d8be7b290123edd9099b0274'),
@@ -204,7 +228,8 @@ const gistSeed = [
     body:
       "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.\n\nMaecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.",
     author: mongoose.Types.ObjectId('1226fb9f5d60517e93f585cf'),
-    category: "business"
+    category: "business",
+    liked: 24
   }
 ];
 
