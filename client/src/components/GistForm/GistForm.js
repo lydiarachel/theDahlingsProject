@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import categories from "../../utils/Categories";
+import { Row, Input } from 'react-materialize'
 
 class GistForm extends Component {
   state = {
@@ -8,6 +9,8 @@ class GistForm extends Component {
     gistBody: "",
     gistCategory: ""
   };
+ 
+
   handleChange = event => {
     this.setState({ gistCategory: event.target.value });
   };
@@ -17,20 +20,24 @@ class GistForm extends Component {
       [name]: value
     });
   };
-
+  
   handleFormSubmit = (event, data) => {
     event.preventDefault();
-    console.log(this.state.gistTitle);
+    console.log(this.state.gistCategory);
     API.createGist({
       title: this.state.gistTitle,
       body: this.state.gistBody,
-      category: this.state.gistCategory
+      category: this.state.gistCategory,
+      author: "dfa2e0e0c2961ecdc692a06e"
     });
     this.setState({ gistTitle: "" });
     this.setState({ gistBody: "" });
     this.setState({ gistCategory: "" });
   };
-  render() {
+  
+  render()
+  
+   {
     return (
       <div className="row">
         <form className="col s12">
@@ -56,27 +63,34 @@ class GistForm extends Component {
               <label htmlFor="gist body">Gist Content</label>
             </div>
           </div>
-          <div className="input-field col s6">
-            <select
+          
+        <Row>
+          <Input
+              s={6}
+              ref = 'select'
+              type="select"
+              label="Select A Category"
               value={this.state.gistCategory}
               onChange={this.handleChange}
             >
-              <option value="" disabled>
+              <option  value="" disabled>
                 Choose a Category
               </option>
               {categories.map(category => {
                 return (
-                  <option
+                 <option
+                  
                     data-id={category.id}
                     key={category.id}
                     value={category.id}
                   >
                     {category.label}
                   </option>
-                );
+                  
+                )
               })}
-            </select>
-          </div>
+            </Input>
+          </Row>
           <button
             className="btn waves-effect waves-light right"
             type="submit"
