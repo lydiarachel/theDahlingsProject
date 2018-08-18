@@ -27,7 +27,8 @@ class CommentBox extends Component{
             //when we do this, we will not need to pass id, that will come from the db
           API.createComment({
               comment:this.state.commentInput,
-              gistId: this.props._id
+              gistId: this.props._id, 
+              author: "a929728a5394e821e79dc220"
             })
         
         }
