@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import SearchBar from "../../components/SearchBar";
 import Heading from "../../components/Heading";
 import UserForm from "../../components/UserForm";
 class CreateProfile extends Component {

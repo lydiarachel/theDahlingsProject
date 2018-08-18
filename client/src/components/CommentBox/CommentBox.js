@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Comment from '../Comment';
 import API from "../../utils/API";
+import './CommentBox.css'
 
 class CommentBox extends Component{
     state = {
@@ -36,18 +37,19 @@ class CommentBox extends Component{
     
     render(){
         return (
-            <div>
-                <h2>Comments </h2>
+            <div className="row">
+            <div className="col s11 m11">
+                <h2 className="gist-comment">Comments </h2>
                 <div>
                 {this.props.comments.map(comment => (
                     <Comment
                         key={comment._id}
-                        commentProp={comment.commentgit }
+                        commentProp={comment.comment}
                     />
                 ))}
                 </div>
                 <form className="form">
-                <div className = 'row'>
+   
                 <div className = 'input-field col s12'>
                 <input
                     value={this.state.commentInput}
@@ -55,16 +57,34 @@ class CommentBox extends Component{
                     onChange={this.handleInputChange}
                     type="text"
                 />
-                 <label htmlFor="gist title">Enter Comment</label>
+
+                 <label htmlFor="comment">Enter Comment</label>
+             
                 </div>
-                </div>
-                <button onClick={this.handleFormSubmit}>Comment</button>
+         
+
+                <button 
+                    className="btn waves-effect waves-light right"
+                    type="submit"
+                    name="action"
+                    onClick={this.handleFormSubmit}
+                    >
+                    Comment
+                    <i className="material-icons right">send</i>
+                    </button>
+
                 </form>
                 
 
             </div>
-        ) 
+
+      
+
+            </div>
+        )
+
     }
 }
 
 export default CommentBox; 
+

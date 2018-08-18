@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import GoogleAuthBtn from "../../components/GoogleAuthBtn";
+import "./SignInForm.css";
 
 class SignInForm extends Component {
   state = {
@@ -30,10 +32,9 @@ class SignInForm extends Component {
   }
   render() {
     return (
-      <div className="row">
-        <form className="col s6">
+        <form className="col s6 form">
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s12">
               <input
               name= "email"
               type="email"
@@ -42,7 +43,7 @@ class SignInForm extends Component {
               />
               <label for="email">Email</label>
             </div>
-            <div className="input-field col s6">
+            <div className="input-field col s12">
               <input 
               name= "password"
               type="password"
@@ -50,25 +51,21 @@ class SignInForm extends Component {
               onChange={this.handleInputChange}/>
               <label for="password">Password</label>
             </div>
-          </div>
-          <button
-            className="btn waves-effect waves-light right"
-            type="submit"
-            name="action"
-          >
-            Sign In
-            <i className="material-icons left"></i>
-          </button>
-          <button
-            className="btn waves-effect waves-light right"
-            type="submit"
-            name="action"
-          >
-            Create
-            <i className="material-icons right"></i>
-          </button>
+
+            <div>
+              <button
+              className="btn waves-effect waves-light btn-large btn-auth-page"
+              type="submit"
+              name="action">
+                Log In
+                <i className="material-icons left"></i>
+              </button>
+
+              <GoogleAuthBtn />
+              
+            </div>
+          </div>            
         </form>
-      </div>
     );
   }
 }
