@@ -26,7 +26,7 @@ class CommentBox extends Component{
               comment:this.state.commentInput,
               gistId: this.props._id, 
               author: "a929728a5394e821e79dc220"
-            })
+            }).then(this.props.method)
         
         }
         
@@ -44,7 +44,9 @@ class CommentBox extends Component{
                 {this.props.comments.map(comment => (
                     <Comment
                         key={comment._id}
-                        commentProp={comment.comment}
+                        comment={comment.comment}
+                        authorName={comment.author.name}
+                        date = {comment.date}
                     />
                 ))}
                 </div>

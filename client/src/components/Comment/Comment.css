@@ -1,0 +1,24 @@
+.body{
+   height: 200px;
+}
+.gist-author{
+    font-family: 'Cantata One', serif;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.bybyby {
+    text-transform: lowercase;
+}
+.gist-date {
+    font-family: 'Cantata One', serif;
+    font-style: italic;
+    font-size: 12px;
+}
+#comment-body {
+    margin: 50px 40px;
+}
+.gist-card-styling {
+    outline: 5px solid var(--cyan);
+    outline-offset: 5px;
+}

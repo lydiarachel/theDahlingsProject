@@ -13,16 +13,17 @@ class Gist extends React.Component {
   componentDidMount(){
     console.log (this.state);
     console.log(this.props.match.params)
-    API.findGists({_id:this.props.match.params.id})
-    .then(result => {
-      console.log(result.data);
-      this.setState({
-        gistResult: result.data
-      })
-    })
-    .catch(err => console.log(err));
+   this.findGist()
   }
-
+  findGist = () =>{API.findGists({_id:this.props.match.params.id})
+  .then(result => {
+    console.log(result.data);
+    this.setState({
+      gistResult: result.data
+    })
+  })
+  .catch(err => console.log(err));
+}
   render() {
     if (this.state.gistResult.length === 0){
       return null;
@@ -48,6 +49,7 @@ class Gist extends React.Component {
     <div className="row">
       <CommentBox 
       _id={this.state.gistResult[0]._id}
+      method ={this.findGist()}
       comments={this.state.gistResult[0].comments}
       />
     </div>
