@@ -12,7 +12,7 @@ const Card = props =>(
           </div>
           <div>
             <p className="gist-date">{props.date}</p>
-            <p className="gist-author"><span className="bybyby"> by </span> {props.author}</p>
+            <p className="gist-author"><span className="bybyby"> by </span> {props.authorName}</p>
           </div>
           
           {/*create a div that will have two p tags with className that are styled. This will allow me to place date and by 
