@@ -37,7 +37,10 @@ class Gist extends React.Component {
       <Card 
       title={this.state.gistResult[0].title}
       body={this.state.gistResult[0].body}
-      liked={this.state.gistResult[0].liked}/>
+      liked={this.state.gistResult[0].liked}
+      date={this.state.gistResult[0].date}
+      author={this.state.gistResult[0].author}
+      category={this.state.gistResult[0].category}/>
     </div>
     
     <div className="row">

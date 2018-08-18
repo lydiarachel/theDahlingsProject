@@ -1,0 +1,53 @@
+.gist-card-row {
+    margin-top: 20px;
+}
+
+.gist-card-styling {
+    outline: 5px solid var(--cyan);
+    outline-offset: 5px;
+}
+.gist-title { 
+    font-family: 'Cantata One', serif;
+}
+
+.gist-date {
+    font-family: 'Cantata One', serif;
+    font-style: italic;
+    font-size: 12px;
+}
+
+.gist-author{
+    font-family: 'Cantata One', serif;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.bybyby {
+    text-transform: lowercase;
+}
+
+#gist-body {
+    margin: 50px 40px;
+}
+
+.like-icon {
+    margin-right: 10px;
+}
+
+.gist-liked {
+    margin: 10px ;
+}
+
+.gist-category {
+    font-family: 'Cantata One', serif;
+    font-style: italic;
+    font-size: 12px;
+    vertical-align: bottom;
+}
+
+.gist-footer {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-end;
+}
