@@ -80,7 +80,7 @@ class Home extends React.Component {
           {
             this.state.results.map(result => (
               <ViewCard title={result.title}
-              author={result.author}
+              author={result.author.name}
               category={result.category}
               likes={result.liked}
               date={result.date}

@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 const suggestionSchema = new Schema({
   suggestion: { type: String, required: true },
-  author: [{
+  author: {
     type: Schema.Types.ObjectId,
-    ref: 'User'}],
+    ref: 'User'},
   liked: { type: Number, required: true},
   date: { type: Date, default: Date.now }
 });

@@ -17,6 +17,8 @@ exports.find = params =>{
     return User.find(params)
 }
 
-
+exports.findOneAndUpdate = params =>{
+   return User.findOneAndUpdate(params) 
+}
 
 
