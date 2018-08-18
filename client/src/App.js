@@ -9,6 +9,7 @@ import NavBar from "./components/NavBar";
 import './App.css';
 import AddGist from './pages/AddGist';
 import AddSuggestion from './pages/AddSuggestion';
+import CreateProfile from './pages/CreateProfile/CreateProfile';
 
 
 
@@ -28,6 +29,7 @@ class App extends Component {
           <Route exact path="/add-gist" component ={AddGist} />
           <Route exact path="/add-suggestion" component = {AddSuggestion} />
           <Route exact path="/search/:category" component = {Search} />
+          <Route exact path="/create-profile" component = {CreateProfile} />
         </div>
       </Router>
     )

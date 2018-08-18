@@ -40,7 +40,7 @@ class NavBar extends Component {
               </li>
               <li>
                 <Link to='/auth' className="waves-effect waves-light">
-                  Log In/Sign Out
+                  Sign In
                 </Link>
               </li>
             </ul>
