@@ -1,0 +1,26 @@
+.btn-auth-page {
+    border: 3px solid var(--white);
+    background: none;
+}
+
+.btn-auth-page:hover {
+    background: var(--cyan);
+}
+
+/* input[type=] {
+    border-bottom: 3px solid yellow;
+} */
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: #000;
+}
+/* label underline focus color */
+  .input-field input[type=text]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }
+input {
+    color: var(--white);
+    font-size: 1.5rem;
+}  
