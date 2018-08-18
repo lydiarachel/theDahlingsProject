@@ -15,6 +15,9 @@ exports.create = new_user => {
  */
 exports.find = params =>{
     return User.find(params)
+    .populate('comments', 'comment')
+    .populate('suggestions', 'suggestion')
+    .populate('gists', 'gist')
 }
 
 exports.findOneAndUpdate = params =>{
