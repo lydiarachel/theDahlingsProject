@@ -11,6 +11,7 @@ class Gist extends React.Component {
   }
 
   componentDidMount(){
+    console.log (this.state);
     console.log(this.props.match.params)
     API.findGists({_id:this.props.match.params.id})
     .then(result => {
@@ -39,7 +40,8 @@ class Gist extends React.Component {
       body={this.state.gistResult[0].body}
       liked={this.state.gistResult[0].liked}
       date={this.state.gistResult[0].date}
-      author={this.state.gistResult[0].author}
+      authorName={this.state.gistResult[0].author.name}
+      authorId={this.state.gistResult[0].author._id}
       category={this.state.gistResult[0].category}/>
     </div>
     
