@@ -29,11 +29,12 @@ class SuggestionForm extends Component {
     }
     API.createSuggestion({
       title: this.state.suggestionTitle,
-      body: this.state.suggestionBody,
-      category: this.state.gistCategory
+      suggestion: this.state.suggestionBody,
+      category: this.state.gistCategory,
+      author: '59a4d24202f62ef3b2d3dafc'
     });
-    this.setState({ gistTitle: "" });
-    this.setState({ gistBody: "" });
+    this.setState({ suggestionTitle: "" });
+    this.setState({ suggestionBody: "" });
     this.setState({ gistCategory: "" });
   };
   render() {
@@ -43,7 +44,7 @@ class SuggestionForm extends Component {
           <div className="row">
             <div className="input-field col s12">
               <input
-                name="gistTitle"
+                name="suggestionTitle"
                 type="text"
                 value={this.state.suggestionTitle}
                 onChange={this.handleInputChange}
@@ -54,7 +55,7 @@ class SuggestionForm extends Component {
           <div className="row">
             <div className="input-field col s12">
               <textarea
-                name="gistBody"
+                name="suggestionBody"
                 className="materialize-textarea"
                 value={this.state.suggestionBody}
                 onChange={this.handleInputChange}
