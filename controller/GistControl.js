@@ -1,8 +1,7 @@
 // Handle flow of data for all interactions with `User`
 
 const mongoose = require("mongoose");
-const { Gist } = require("../db").Models;
-const { User } = require("../db").Models;
+const { Gist, User} = require("../db").Models;
 
 /**
  * Add new gist to database
@@ -29,5 +28,10 @@ exports.create = new_gist => {
 exports.find = params => {
   return Gist.find(params)
     .populate("author", "name")
-    .populate("comments", "comment");
+    .populate({path: "comments", populate: {path: 'author', select: 'name'}});
 };
+exports.findOneAndUpdate= params =>{
+    console.log(params)
+    return Gist.findOneAndUpdate({_id: params._id}, {$set:{liked: params.liked}}) 
+ }
+ 

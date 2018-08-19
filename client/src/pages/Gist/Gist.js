@@ -7,21 +7,39 @@ import "./Gist.css";
 
 class Gist extends React.Component {
   state = {
-      gistResult: []
+      gistResult: [],
+      likes: '',
+      gistId: ''
   }
 
   componentDidMount(){
+    console.log (this.state);
     console.log(this.props.match.params)
-    API.findGists({_id:this.props.match.params.id})
-    .then(result => {
-      console.log(result.data);
-      this.setState({
-        gistResult: result.data
-      })
-    })
-    .catch(err => console.log(err));
+   this.findGist()
   }
-
+  updateLikes = () => {
+    let likeUpdate = (this.state.likes + 1)
+    API.updateGist({
+      _id: this.state.gistId,
+      liked: likeUpdate
+    })
+    .then(results => {
+      if(results){
+        this.findGist()
+      }
+    })
+  }
+  findGist = () =>{API.findGists({_id:this.props.match.params.id})
+  .then(result => {
+    console.log(result.data);
+    this.setState({
+      gistResult: result.data
+    })
+    this.setState({likes : this.state.gistResult[0].liked})
+    this.setState({gistId : this.state.gistResult[0]._id})
+  })
+  .catch(err => console.log(err));
+}
   render() {
     if (this.state.gistResult.length === 0){
       return null;
@@ -39,13 +57,16 @@ class Gist extends React.Component {
       body={this.state.gistResult[0].body}
       liked={this.state.gistResult[0].liked}
       date={this.state.gistResult[0].date}
-      author={this.state.gistResult[0].author}
-      category={this.state.gistResult[0].category}/>
+      authorName={this.state.gistResult[0].author.name}
+      authorId={this.state.gistResult[0].author._id}
+      category={this.state.gistResult[0].category}
+      updateLikes ={this.updateLikes}/>
     </div>
     
     <div className="row">
       <CommentBox 
       _id={this.state.gistResult[0]._id}
+      method ={this.findGist}
       comments={this.state.gistResult[0].comments}
       />
     </div>

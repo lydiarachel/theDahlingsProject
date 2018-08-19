@@ -8,15 +8,11 @@ class CommentBox extends Component{
         commentInput:""
     }
     handleInputChange = event => {
-        // Getting the value and name of the input which triggered the change
-        let value = event.target.value;
-        const name = event.target.name;
-        
-        // Updating the input's state
+        const { name, value } = event.target;
         this.setState({
           [name]: value
-        })
-      };
+        });
+    }
 
       handleFormSubmit = event => {
         // Preventing the default behavior of the form submit (which is to refresh the page)
@@ -30,7 +26,7 @@ class CommentBox extends Component{
               comment:this.state.commentInput,
               gistId: this.props._id, 
               author: "a929728a5394e821e79dc220"
-            })
+            }).then(this.props.method)
         
         }
         
@@ -47,19 +43,28 @@ class CommentBox extends Component{
                 <div>
                 {this.props.comments.map(comment => (
                     <Comment
-                        key={comment.id}
-                        commentProp={comment}
+                        key={comment._id}
+                        comment={comment.comment}
+                        authorName={comment.author.name}
+                        date = {comment.date}
                     />
                 ))}
                 </div>
                 <form className="form">
+   
+                <div className = 'input-field col s12'>
                 <input
                     value={this.state.commentInput}
                     name="commentInput"
                     onChange={this.handleInputChange}
                     type="text"
-                    placeholder="Enter Comment"
                 />
+
+                 <label htmlFor="comment">Enter Comment</label>
+             
+                </div>
+         
+
                 <button 
                     className="btn waves-effect waves-light right"
                     type="submit"
@@ -69,12 +74,17 @@ class CommentBox extends Component{
                     Comment
                     <i className="material-icons right">send</i>
                     </button>
+
                 </form>
                 
 
             </div>
+
+      
+
             </div>
         )
+
     }
 }
 
