@@ -31,7 +31,12 @@ export default {
     deleteGist: id => {
         return axios.delete('/gist' + id)
     },
-
+    updateGist: params =>{
+        return axios.post('/gist/update', params)
+    },
+    updateSuggestion: params =>{
+        return axios.post('/suggestion/update', params)
+    },
 
     // AUTHENTICATION
     loginGoogle: () => {

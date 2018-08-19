@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import SearchBar from "../../components/SearchBar";
 import Heading from "../../components/Heading";
-import ViewCard from "../../components/ViewCard";
+import Card from "../../components/Card";
+import API from '../../utils/API';
 import "./Suggestion.css";
 
 class Suggestion extends Component {
@@ -11,37 +11,40 @@ class Suggestion extends Component {
   componentDidMount(){
     this.loadSuggestion()
   }
+  updateLikes = () => {
+    this.loadSuggestion()
+  }
   loadSuggestion = () => {
-    API.getSuggestion()
+    API.findSuggestion()
         .then(res =>
         this.setState({ Suggestions: res.data,})
+        
     )
     .catch(err => console.log(err));
 }
-  searchSuggestion = event => {
-    event.preventDefault()
-    
-  }
+ 
   render() {
     return (
       <div>
-        <div className="search-box">
-          <SearchBar />
-        </div>
 
         <div className="title">
           <Heading>Suggestions</Heading>
         </div>
-        {!this.state.savedArticles.length ? (
+        {!this.state.Suggestions.length ? (
           <h5>No Suggestions Have been Created</h5>
         ) : (
           <div className="row">
             {this.state.Suggestions.map(suggestion => (
-              <ViewCard
+              <Card
                 key={suggestion._id}
+                id ={suggestion._id}
                 title={suggestion.title}
-                author={suggestion.author}
-                url={suggestion.category}
+                date={suggestion.date}
+                body={suggestion.suggestion}
+                authorName={suggestion.author.name}
+                category={suggestion.category}
+                liked = {suggestion.liked}
+                method = {this.updateLikes}
               />
             ))}
           </div>

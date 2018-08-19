@@ -30,7 +30,8 @@ exports.find = params => {
     .populate("author", "name")
     .populate({path: "comments", populate: {path: 'author', select: 'name'}});
 };
-exports.findOneAndUpdate = params =>{
-    return Gist.findOneAndUpdate(params) 
+exports.findOneAndUpdate= params =>{
+    console.log(params)
+    return Gist.findOneAndUpdate({_id: params._id}, {$set:{liked: params.liked}}) 
  }
  

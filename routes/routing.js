@@ -100,6 +100,46 @@ router.post('/suggestion/create', (req, res, next) => {
             })
         })
 })
+router.post('/gist/update', (req, res, next) =>{
+    let updateInfo = req.body
+    console.log(req.body)
+    control.Gist.findOneAndUpdate(updateInfo)
+    .then(gist_in_db => {
+        if (gist_in_db) {
+            res.status(200).json(gist_in_db)
+        } else {
+            res.status(404).json({
+                message: 'Unable to update gist'
+            })
+        }
+    })
+    .catch(err => {
+        res.status(500).json({
+            message: 'Internal server error',
+            Error: err
+        })
+    })
+})
+router.post('/suggestion/update', (req, res, next) =>{
+    let updateInfo = req.body
+    console.log(req.body)
+    control.Suggestion.findOneAndUpdate(updateInfo)
+    .then(suggestion_in_db => {
+        if (suggestion_in_db) {
+            res.status(200).json(suggestion_in_db)
+        } else {
+            res.status(404).json({
+                message: 'Unable to update suggestion'
+            })
+        }
+    })
+    .catch(err => {
+        res.status(500).json({
+            message: 'Internal server error',
+            Error: err
+        })
+    })
+})
 
 // END POST ROUTES
 // ================================================

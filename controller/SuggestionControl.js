@@ -9,6 +9,7 @@ const { Suggestion, User } = require('../db').Models
  * @returns {Promise} 
  */
 exports.create = new_suggestion => {
+    console.log(`control ${new_suggestion}`)
     return Suggestion.create(new_suggestion).then(dbSuggestion => {
         return User.findOneAndUpdate(
           { _id: new_suggestion.author },
@@ -27,3 +28,6 @@ exports.findAll = () => {
     return Suggestion.find()
     .populate("author", "name")
 }
+exports.findOneAndUpdate = params =>{
+    return Suggestion.findOneAndUpdate({_id: params._id}, {$set:{liked: params.liked}}) 
+ }

@@ -39,6 +39,11 @@ class NavBar extends Component {
                 </Link>
               </li>
               <li>
+                <Link to= '/suggestions' className='waves-effect waves-light'>
+                Suggestions
+                </Link>
+              </li>
+              <li>
                 <Link to='/auth' className="waves-effect waves-light">
                   Sign In
                 </Link>
