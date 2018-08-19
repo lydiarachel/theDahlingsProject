@@ -12,6 +12,11 @@
     border-bottom: 3px solid var(--cyan);   
 }
 
+#search:focus{
+    background: none;
+    color: var(--white);
+}
+
 #search::placeholder {
     color: var(--white);
 }
@@ -21,6 +26,15 @@
     line-height: 2.5;
     color: var(--cyan);
 }
+
+.search-icon:active,
+.search-icon:focus {
+    color: var(--white);
+}
+
+.input-field input[type=text]:focus + label {
+    color: var(--cyan);
+  }
 
 @media screen and (max-width: 900px) {
     .input-field {

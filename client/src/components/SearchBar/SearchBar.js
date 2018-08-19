@@ -13,6 +13,7 @@ const SearchBar = props => (
           id="search" 
           type="search" 
           placeholder="Search for the gist" 
+          autocomplete="off"
           required />
           <label className="label-icon" htmlFor="search"><i className="material-icons search-icon">search</i></label>
           <i className="material-icons">close</i>
