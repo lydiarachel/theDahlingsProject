@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import categories from "../../utils/Categories";
-import { Row, Input } from 'react-materialize'
 class SuggestionForm extends Component {
   state = {
     suggestionTitle: "",
@@ -63,11 +62,9 @@ class SuggestionForm extends Component {
               <label htmlFor="gist body">Suggestion Content</label>
             </div>
           </div>
-          <Row>
-            <Input
-              s={6}
-              type="select"
-              label="Select A Category"
+          <div className="row">
+            <div className="input-field col s6">
+              <select
               value={this.state.gistCategory}
               onChange={this.handleChange}
             >
@@ -85,8 +82,10 @@ class SuggestionForm extends Component {
                   </option>
                 );
               })}
-            </Input>
-          </Row>
+              </select>
+              <label>Select A Category</label>
+            </div>
+          </div>
           <button
             className="btn waves-effect waves-light right"
             type="submit"
