@@ -39,6 +39,33 @@ class CommentBox extends Component{
         return (
             <div className="row">
             <div className="col s11 m11">
+            <form className="form">
+   
+                <div className = 'input-field comment-input col s12'>
+                <input
+                    value={this.state.commentInput}
+                    name="commentInput"
+                    onChange={this.handleInputChange}
+                    type="text"
+                />
+
+                 <label htmlFor="comment">Enter Comment</label>
+             
+               
+         
+
+                <button 
+                    className="btn waves-effect waves-light btn-small btn-gist-page"
+                    type="submit"
+                    name="action"
+                    onClick={this.handleFormSubmit}
+                    >
+                    Comment
+                    <i className="material-icons right">send</i>
+                    </button>
+                    </div>
+                </form>
+
                 <h2 className="gist-comment">Comments </h2>
                 <div>
                 {this.props.comments.map(comment => (
@@ -50,32 +77,7 @@ class CommentBox extends Component{
                     />
                 ))}
                 </div>
-                <form className="form">
-   
-                <div className = 'input-field col s12'>
-                <input
-                    value={this.state.commentInput}
-                    name="commentInput"
-                    onChange={this.handleInputChange}
-                    type="text"
-                />
-
-                 <label htmlFor="comment">Enter Comment</label>
-             
-                </div>
-         
-
-                <button 
-                    className="btn waves-effect waves-light right"
-                    type="submit"
-                    name="action"
-                    onClick={this.handleFormSubmit}
-                    >
-                    Comment
-                    <i className="material-icons right">send</i>
-                    </button>
-
-                </form>
+                
                 
 
             </div>

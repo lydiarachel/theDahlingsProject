@@ -7,7 +7,7 @@ const AddSuggestion = () => (
     
 
     <div className="title">
-      <Heading>Add Suggestion</Heading>
+      <Heading>Add Su-gist-ion</Heading>
     </div>
 
     <div className="row" />

@@ -1,24 +1,15 @@
-.body{
-   height: 200px;
-}
-.gist-author{
-    font-family: 'Cantata One', serif;
-    font-size: 14px;
-    text-transform: uppercase;
+.comment-body {
+    color: white;
+    border-top: 2px solid var(--cyan);
 }
 
-.bybyby {
-    text-transform: lowercase;
+.gist-body-comment {
+    text-align: justify;
 }
-.gist-date {
-    font-family: 'Cantata One', serif;
-    font-style: italic;
-    font-size: 12px;
-}
-#comment-body {
-    margin: 50px 40px;
-}
-.gist-card-styling {
-    outline: 5px solid var(--cyan);
-    outline-offset: 5px;
+
+.gist-comment-author {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }

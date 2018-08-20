@@ -49,7 +49,7 @@ class SuggestionForm extends Component {
                 value={this.state.suggestionTitle}
                 onChange={this.handleInputChange}
               />
-              <label htmlFor="gist title">Suggestion Title</label>
+              <label htmlFor="gist title">Su-gist-ion Title</label>
             </div>
           </div>
           <div className="row">
@@ -60,7 +60,7 @@ class SuggestionForm extends Component {
                 value={this.state.suggestionBody}
                 onChange={this.handleInputChange}
               />
-              <label htmlFor="gist body">Suggestion Content</label>
+              <label htmlFor="gist body">Su-gist-ion Content</label>
             </div>
           </div>
           <Row>
