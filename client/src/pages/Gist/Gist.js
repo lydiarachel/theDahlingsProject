@@ -60,7 +60,7 @@ class Gist extends React.Component {
       authorName={this.state.gistResult[0].author.name}
       authorId={this.state.gistResult[0].author._id}
       category={this.state.gistResult[0].category}
-      updateLikes ={this.updateLikes}/>
+      method ={this.updateLikes}/>
     </div>
     
     <div className="row">
