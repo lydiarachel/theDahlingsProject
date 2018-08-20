@@ -12,8 +12,6 @@ import AddSuggestion from './pages/AddSuggestion';
 import CreateProfile from './pages/CreateProfile/CreateProfile';
 import Suggestion from './pages/Suggestion/suggestion';
 
-
-
 class App extends Component {
   
   render(){
@@ -24,14 +22,15 @@ class App extends Component {
 
           <Route exact path="/" component={Home} />
           <Route exact path="/search-results" component={Search} />
+          <Route exact path="/search-results/:query" component={Search} />
           <Route exact path="/about" component={About} />
           <Route exact path="/auth" component={Auth} />
           <Route exact path="/gist/:id" component={Gist} />
           <Route exact path="/add-gist" component ={AddGist} />
-          <Route exact path="/add-suggestion" component = {AddSuggestion} />
-          <Route exact path="/search/:category" component = {Search} />
-          <Route exact path="/create-profile" component = {CreateProfile} />
-          <Route exact path ="/suggestions" component = {Suggestion} />
+          <Route exact path="/add-suggestion" component= {AddSuggestion} />
+          <Route exact path="/search/:category" component= {Search} />
+          <Route exact path="/create-profile" component= {CreateProfile} />
+          <Route exact path="/suggestions" component= {Suggestion} />
         </div>
       </Router>
     )

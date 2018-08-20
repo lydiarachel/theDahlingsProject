@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from 'react-router-dom';
 import SearchBar from "../../components/SearchBar";
 import Heading from "../../components/Heading";
 import ViewCard from "../../components/ViewCard";
@@ -9,7 +10,6 @@ import "./Home.css";
 class Home extends React.Component {
   state = {
     search: "",
-    gists: [],
     results: [],
     error: ""
   }
@@ -34,25 +34,10 @@ class Home extends React.Component {
   handleKeyPress = event =>  {
     if (event.key === 'Enter') {
       event.preventDefault();
-      console.log('Enter was pressed');
-      console.log("Search query", {title: {$regex: `*${this.state.search}*`}})
-
-      // Request to the database
-      API.findGists({title: {$regex: `*${this.state.search}*`}}) // look for titles that have searched string inside
-      .then(res => {
-        if (res.data.status === "error") {
-          throw new Error(res.data.message);
-        }
-        this.setState({ 
-          gists: res.data,
-          search: "",
-        });
-
-        console.log("Results from search API", res.data)
-      })
-      .catch(err => this.setState({ error: err.message }));
+      console.log("Enter was pressed");
+      this.props.history.push('/search-results/' + this.state.search);
     }
-  }
+  };
 
   render() {
     // don't render the page untill state.results populate
@@ -95,4 +80,4 @@ class Home extends React.Component {
   } 
 }
 
-export default Home;
+export default withRouter(Home);

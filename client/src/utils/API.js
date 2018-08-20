@@ -16,6 +16,10 @@ export default {
     findGists: params => {
         return axios.get(`/gist/find${params ? '?' + Object.keys(params)[0] + '=' + Object.values(params)[0] : ''}`)
     },
+    // Search for gists by the string from input field
+    searchForGists: params => {
+        return axios.get('/gist/search/' + params)
+    },
     findUser: params => {
         return axios.get(`/user/find${params ? '?' + Object.keys(params)[0] + '=' + Object.values(params)[0] : ''}`)
     },
