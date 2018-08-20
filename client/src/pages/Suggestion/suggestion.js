@@ -37,7 +37,7 @@ class Suggestion extends Component {
       <div>
 
         <div className="title">
-          <Heading>Suggestions</Heading>
+          <Heading>Su-gist-ions</Heading>
         </div>
         {!this.state.Suggestions.length ? (
           <h5>No Suggestions Have been Created</h5>

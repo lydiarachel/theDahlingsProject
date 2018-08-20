@@ -2,5 +2,15 @@
 .gist-comment {
     color: #fff;
     font-family: 'Cantata One', serif;
-    font-size: 20px;
+    font-size: 30px;
+}
+
+.btn-gist-page {
+    border: 3px solid var(--white);
+    background: none;
+    float: right;
+}
+
+.btn-gist-page:hover {
+    background: var(--cyan);
 }
