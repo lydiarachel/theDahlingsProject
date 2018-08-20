@@ -11,13 +11,22 @@ class Suggestion extends Component {
   componentDidMount(){
     this.loadSuggestion()
   }
-  updateLikes = () => {
-    this.loadSuggestion()
+  updateLikes = info => {
+    API.updateSuggestion({
+      _id: info.id,
+      liked: info.likes
+    }).then(results => {
+      console.log(results)
+      if (results) {
+        this.loadSuggestion();
+      }
+    });
+    
   }
   loadSuggestion = () => {
     API.findSuggestion()
         .then(res =>
-        this.setState({ Suggestions: res.data,})
+        this.setState({ Suggestions: res.data})
         
     )
     .catch(err => console.log(err));
