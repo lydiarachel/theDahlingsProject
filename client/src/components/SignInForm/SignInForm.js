@@ -41,7 +41,7 @@ class SignInForm extends Component {
               value={this.state.email}
               onChange={this.handleInputChange}
               />
-              <label for="email">Email</label>
+              <label htmlFor="email">Email</label>
             </div>
             <div className="input-field col s12">
               <input 
@@ -49,7 +49,7 @@ class SignInForm extends Component {
               type="password"
               value={this.state.password}
               onChange={this.handleInputChange}/>
-              <label for="password">Password</label>
+              <label htmlFor="password">Password</label>
             </div>
 
             <div>

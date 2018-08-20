@@ -187,6 +187,29 @@ router.get('/gist/find', (req, res, next) => {
         })
 })
 
+// Search for Gists by the string from input field
+router.get('/gist/search/:query', (req, res, next) => {
+    const search_params = req.params.query;
+
+    // controller function to search for gists
+    control.Gist.find({
+        // Partial text Search
+        title: {
+            $regex: new RegExp(search_params, "i"), // adding "i" makes it case insensative
+        },
+    })
+    .then(gists => {
+        console.log(gists);
+        res.status(200).json(gists)
+    })
+    .catch(err => {
+        res.status(500).json({
+            message: 'Internal server error',
+            Error: err
+        })
+    })
+})
+
 // Search for comments using parameters provided by client
 router.get('/comment/find', (req, res, next) => {
     const params = req.query
