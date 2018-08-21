@@ -28,10 +28,23 @@ textarea.materialize-textarea:focus:not([readonly]) {
     color: var(--white);
 }
 
-/* not working */
-.input-field input[type=text]:focus + label,
-.input-field input[type=email]:focus + label,
-.input-field input[type=password]:focus + label,
-textarea.materialize-textarea:focus + label {
-    color: red;
-  }
+.signin-form {
+    border: 2px solid var(--cyan);
+    width: 40%;
+    margin: 0 auto;
+}
+.form-inside {
+    padding: 20px 0;
+}
+
+@media screen and (max-width: 1200px) {
+    .form {
+        width: 60%;
+    } 
+}
+
+@media screen and (max-width: 980px) {
+    .form {
+        width: 80%;
+    } 
+}

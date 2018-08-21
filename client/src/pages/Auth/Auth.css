@@ -1,0 +1,30 @@
+.auth-title {
+    background: var(--white);
+    padding: 10px 0;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.auth-title .heading {
+    font-size: 80px;
+}
+
+.sub-heading {
+    font-size: 1.2rem;
+}
+
+.auth-options {
+    width: 50%;
+    margin: 0 auto;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.sub-title {
+    color: white;
+    font-size: 18px;
+    margin: 10px 0;
+    text-align: center;
+}

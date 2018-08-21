@@ -9,6 +9,7 @@ class GistForm extends Component {
     gistCategory: "",
     user: {}
   };
+
   componentDidMount(){
     API.getAuthenticatedUser()
         .then(user => {
@@ -19,7 +20,13 @@ class GistForm extends Component {
             }
         })
         
-}
+
+    const selects = document.querySelectorAll('select');
+    for (var i = 0; i < selects.length; i++) {
+      window.M.FormSelect.init(selects[i]);
+    }
+  }
+
 
   handleChange = event => {
     this.setState({ gistCategory: event.target.value });

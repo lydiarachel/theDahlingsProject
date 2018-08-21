@@ -5,9 +5,10 @@ const passportLocalMongoose = require('passport-local-mongoose')
 const userSchema = new Schema({
   email:{type: String, unique: true},
   name: { type: String, required: true },
-  password: String,
+  googleId: { type: String, unique: true, required: false},
+  password: { type: String, required: false},
   knowledge: Array,
-  interested: {type: Array, required: true},
+  interested: Array,
   imageUrl: String,
   comments:[{
     type: Schema.Types.ObjectId,

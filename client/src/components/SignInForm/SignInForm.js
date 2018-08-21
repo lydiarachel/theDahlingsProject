@@ -32,9 +32,9 @@ class SignInForm extends Component {
   }
   render() {
     return (
-        <form className="col s6 form">
+        <form className="signin-form">
           <div className="row">
-            <div className="input-field col s12">
+            <div className="input-field col s12 form-inside">
               <input
               name= "email"
               type="email"
@@ -43,6 +43,7 @@ class SignInForm extends Component {
               />
               <label htmlFor="email">Email</label>
             </div>
+
             <div className="input-field col s12">
               <input 
               name= "password"
@@ -52,17 +53,18 @@ class SignInForm extends Component {
               <label htmlFor="password">Password</label>
             </div>
 
-            <div>
-              <button
-              className="btn waves-effect waves-light btn-large btn-auth-page"
-              type="submit"
-              name="action">
-                Log In
-                <i className="material-icons left"></i>
-              </button>
+            <div className="buttons-auth">
+                <button
+                  className="btn waves-effect waves-light btn-large btn-auth-page"
+                  type="submit"
+                  name="action">
+                    Log In
+                    <i className="material-icons left"></i>
+                  </button>
+            
+              
 
               <GoogleAuthBtn />
-              
             </div>
           </div>            
         </form>

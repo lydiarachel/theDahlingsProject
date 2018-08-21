@@ -8,6 +8,7 @@ class SuggestionForm extends Component {
     gistCategory: "",
     user: {}
   };
+
   componentDidMount(){
     API.getAuthenticatedUser()
         .then(user => {
@@ -17,10 +18,18 @@ class SuggestionForm extends Component {
                 return
             }
         })
-}
+
+    const selects = document.querySelectorAll('select');
+    for (var i = 0; i < selects.length; i++) {
+      window.M.FormSelect.init(selects[i]);
+    }
+  }
+
+
   handleChange = event => {
     this.setState({ gistCategory: event.target.value });
   };
+  
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -48,6 +57,7 @@ class SuggestionForm extends Component {
     this.setState({ gistCategory: "" });
   };
   render() {
+    console.log(categories, this.state.gistCategory);
     return (
       <div className="row">
         <form className="col s12">

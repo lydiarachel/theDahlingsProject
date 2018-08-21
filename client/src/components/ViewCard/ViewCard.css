@@ -1,5 +1,3 @@
-
-
 .card.medium {
     height: 250px;
     margin: 2.5rem 2rem;
@@ -16,4 +14,35 @@
 
 .gist-category {
     text-transform: capitalize;
+}
+
+.small-card {
+    position: relative;
+    height: 100%;
+}
+.small-card-title {
+    font-family: 'Cantata One', serif;
+    font-weight: 700;
+    color: var(--cyan);
+    font-size: 1.5rem;
+}
+
+.small-card-title a{
+    color: var(--dark-gray);
+}
+
+.small-card-icon {
+    font-size: 18px;
+    color: var(--cyan);
+    
+}
+
+.small-card-rating {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.small-card-data {
+    color: var(--light-gray);
 }
