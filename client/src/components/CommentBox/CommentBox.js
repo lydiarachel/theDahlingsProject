@@ -5,8 +5,22 @@ import './CommentBox.css'
 
 class CommentBox extends Component{
     state = {
-        commentInput:""
+        commentInput:"",
+        user: {}
     }
+
+
+    componentDidMount(){
+        API.getAuthenticatedUser()
+            .then(user => {
+                if (user) {
+                    this.setState({ user: user.data })
+                } else {
+                    return
+                }
+            })
+    }
+
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -25,7 +39,7 @@ class CommentBox extends Component{
           API.createComment({
               comment:this.state.commentInput,
               gistId: this.props._id, 
-              author: "a929728a5394e821e79dc220"
+              author: this.state.user._id
             }).then(this.props.method)
         
         }
