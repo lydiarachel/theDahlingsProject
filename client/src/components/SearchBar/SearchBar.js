@@ -4,7 +4,7 @@ import './SearchBar.css';
 const SearchBar = props => (
     <div className="search-box">
       <form>
-        <div className="input-field">
+        <div className="input-field search-field">
           <input 
           value={props.search} 
           onChange={props.handleInputChange} 

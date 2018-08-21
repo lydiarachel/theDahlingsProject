@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Heading from "../../components/Heading";
 import SignInForm from "../../components/SignInForm";
+import "./Auth.css";
 
 
 class Auth extends Component {
@@ -9,18 +10,26 @@ class Auth extends Component {
   render() {
     return (
       <div>
-        <div className="title">
-          <Heading>Welcome to Get the Gist</Heading>
+        <div className="auth-title">
+          <Heading>get the gist</Heading>
+          <p className="sub-heading">
+          <i className="material-icons">format_quote</i>  An oasis for the curious
+          </p>
         </div>
+
+        <div className="sub-title">
+          Sign in to continue to your account
+        </div>
+
         <div className="row">
           <SignInForm />
-
-          <div className="col m6">
-            <p>
-              An oasis for the curious
-            </p>
-            <div className="new-here">
-              <p>New Here?</p>
+        </div>
+        
+        <div className="row auth-options">
+          <div>
+            
+            <div className="sub-title">
+              New Here?
             </div>
 
             <Link to="/create-profile"
@@ -31,7 +40,18 @@ class Auth extends Component {
             </Link> 
           </div>
 
-          
+          <div>
+            <div className="sub-title">
+              Keep browsing as a guest
+            </div>
+
+            <Link to="/"
+                className="btn-large btn-auth-page"
+            >
+                  Continue as a Guest
+                  <i className="material-icons right"></i>
+            </Link> 
+          </div>
         </div>
         
       </div>

@@ -5,16 +5,22 @@ import { Link } from "react-router-dom";
 const ViewCard = props => (
         <div className="col s12 m6 l4">
           <div className="card medium">
-            <div className="card-content white">
-              <h5><Link to={`/gist/${props.id}`}>
+            <div className="card-content white small-card">
+              <h5 className="small-card-title"><Link to={`/gist/${props.id}`}>
                   {props.title}
                 </Link>
               </h5>
+              <div className="small-card-data">
+                <p>by: {props.author}</p>
+                <p>Category: <span className="gist-category">{props.category}</span></p>
               
-              <p>Author: {props.author}</p>
-              <p>Category: <span className="gist-category">{props.category}</span></p>
-              <p><i className="tiny material-icons search-icon">thumb_up</i> {props.likes}</p>
-              <p>Created at: {props.date}</p>
+                <p>Created at: {props.date}</p>
+              </div>
+              
+
+              <div className="small-card-rating">
+                <i className="material-icons small-card-icon">favorite_border</i> {props.likes}
+              </div>
             
             </div>
           </div>

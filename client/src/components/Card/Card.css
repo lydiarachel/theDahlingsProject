@@ -7,7 +7,8 @@
     outline-offset: 5px;
 }
 .gist-title { 
-    font-family: 'Cantata One', serif;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
 }
 
 .gist-date {
@@ -28,6 +29,8 @@
 
 #gist-body {
     margin: 50px 40px;
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
 }
 
 .like-icon {

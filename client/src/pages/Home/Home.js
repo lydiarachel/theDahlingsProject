@@ -47,34 +47,34 @@ class Home extends React.Component {
 
     return (
         <div className="homepage">
-        <div className="search-box">
+
           <SearchBar search={this.state.search} 
           handleInputChange={this.handleInputChange}
           handleKeyPress={this.handleKeyPress}/>
-        </div>
+   
         
-        <div className="action-buttons">
-          <ActionButtons />
-        </div>
+          <div className="action-buttons">
+            <ActionButtons />
+          </div>
 
-        <div className="title">
-          <Heading>Top Rated Gists</Heading>
-        </div>
-        
-        <div className="row">
-          {
-            this.state.results.map(result => (
-              <ViewCard title={result.title}
-              author={result.author.name}
-              category={result.category}
-              likes={result.liked}
-              date={result.date}
-              key={result._id}
-              id={result._id}
-              />
-            ))
-          }
-        </div>
+          <div className="title">
+            <Heading>Top Rated Gists</Heading>
+          </div>
+          
+          <div className="row">
+            {
+              this.state.results.map(result => (
+                <ViewCard title={result.title}
+                author={result.author.name}
+                category={result.category}
+                likes={result.liked}
+                date={result.date}
+                key={result._id}
+                id={result._id}
+                />
+              ))
+            }
+          </div>
       </div>
     )
   } 
