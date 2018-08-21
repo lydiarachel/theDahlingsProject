@@ -32,7 +32,7 @@ class SignInForm extends Component {
   }
   render() {
     return (
-        <form className="form">
+        <form className="signin-form">
           <div className="row">
             <div className="input-field col s12 form-inside">
               <input
