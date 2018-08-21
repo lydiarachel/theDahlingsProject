@@ -9,10 +9,21 @@ class Gist extends React.Component {
   state = {
       gistResult: [],
       likes: '',
-      gistId: ''
+      gistId: '',
+      hide: 'hide',
+      user: {}
   }
 
   componentDidMount(){
+    API.getAuthenticatedUser()
+        .then(user => {
+            if (!(user.data.message === "Route not found")) {
+                this.setState({ user: user.data })
+                this.setState({ hide: ''})
+            } else {
+                return
+            }
+        })
     console.log (this.state);
     console.log(this.props.match.params)
    this.findGist()
@@ -47,7 +58,7 @@ class Gist extends React.Component {
     
     return(
   <div>
-    <div className="action-buttons">
+    <div className={"action-buttons " + this.state.hide}>
       <ActionButtons />
     </div>
 

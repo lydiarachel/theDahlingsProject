@@ -5,8 +5,19 @@ class SuggestionForm extends Component {
   state = {
     suggestionTitle: "",
     suggestionBody: "",
-    gistCategory: ""
+    gistCategory: "",
+    user: {}
   };
+  componentDidMount(){
+    API.getAuthenticatedUser()
+        .then(user => {
+            if (user) {
+                this.setState({ user: user.data })
+            } else {
+                return
+            }
+        })
+}
   handleChange = event => {
     this.setState({ gistCategory: event.target.value });
   };
@@ -30,7 +41,7 @@ class SuggestionForm extends Component {
       title: this.state.suggestionTitle,
       suggestion: this.state.suggestionBody,
       category: this.state.gistCategory,
-      author: '59a4d24202f62ef3b2d3dafc'
+      author: this.state.user._id
     });
     this.setState({ suggestionTitle: "" });
     this.setState({ suggestionBody: "" });

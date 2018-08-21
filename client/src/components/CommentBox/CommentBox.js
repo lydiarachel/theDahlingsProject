@@ -6,15 +6,17 @@ import './CommentBox.css'
 class CommentBox extends Component{
     state = {
         commentInput:"",
-        user: {}
+        user: {},
+        hide:'hide'
     }
 
 
     componentDidMount(){
         API.getAuthenticatedUser()
             .then(user => {
-                if (user) {
+                if (!(user.data.message === "Route not found")) {
                     this.setState({ user: user.data })
+                    this.setState({ hide: ''})
                 } else {
                     return
                 }
@@ -53,7 +55,7 @@ class CommentBox extends Component{
         return (
             <div className="row">
             <div className="col s11 m11">
-            <form className="form">
+            <form className={"form " + this.state.hide}>
    
                 <div className = 'input-field comment-input col s12'>
                 <input
