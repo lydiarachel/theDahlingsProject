@@ -12,7 +12,21 @@ import AddSuggestion from './pages/AddSuggestion';
 import CreateProfile from './pages/CreateProfile/CreateProfile';
 import Suggestion from './pages/Suggestion/suggestion';
 
+import API from './utils/API'
+
 class App extends Component {
+  
+  state = {
+    user: {}
+  }
+
+  componentDidMount(){
+    API.getAuthenticatedUser()
+      .then(({ data: user}) => {
+        console.log(user)
+        this.setState({ user })
+      })
+  }
   
   render(){
     return(
