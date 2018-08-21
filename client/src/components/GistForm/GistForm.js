@@ -8,7 +8,13 @@ class GistForm extends Component {
     gistBody: "",
     gistCategory: ""
   };
- 
+
+  componentDidMount() {
+    const selects = document.querySelectorAll('select');
+    for (var i = 0; i < selects.length; i++) {
+      window.M.FormSelect.init(selects[i]);
+    }
+  }
 
   handleChange = event => {
     this.setState({ gistCategory: event.target.value });

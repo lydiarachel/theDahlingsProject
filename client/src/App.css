@@ -11,6 +11,7 @@
 /* font-family: 'Cantata One', serif; */
 
 body {
+  margin-top: 120px;
   background: var(--dark-gray);
   color: var(---white);
   box-sizing: border-box;
