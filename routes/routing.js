@@ -256,6 +256,18 @@ router.get('/suggestion/find', (req, res, next) => {
 // END GET ROUTES
 // ================================================
 
+const checkAuthStatus = (req, res, next) => {
+    if (!req.user) {
+        res.redirect('/auth/login')
+    } else {
+        next()
+    }
+}
+
+router.get('/user/profile', checkAuthStatus, (req, res) => {
+    res.json(req.user)
+})
+
 // CATCH ALL ROUTE
 router.use('/*', (req, res, next) => {
     res.json({

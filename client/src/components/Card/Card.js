@@ -1,28 +1,14 @@
 import React, { Component } from "react";
-import API from '../../utils/API'
 import "./Card.css";
 
 class Card extends Component {
   handleClick = () => {
-    if (this.props.method) {
       let updateLikes = this.props.liked + 1;
       let info = {
         likes: updateLikes,
         id: this.props.id
       };
-      API.updateSuggestion({
-        _id: info.id,
-        liked: info.likes
-      }).then(results => {
-        console.log(results)
-        if (results) {
-          this.props.method();
-        }
-      });
-    }
-    else{
-      this.props.updateLikes()
-    }
+      this.props.method(info)
   };
   render() {
     return (
@@ -34,7 +20,7 @@ class Card extends Component {
                 <h1 className="gist-title">{this.props.title}</h1>
               </div>
               <div>
-                <p className="gist-date">{this.props.date}</p>
+                <p className="gist-date">{this.props.date.toLocaleString()}</p>
                 <p className="gist-author">
                   <span className="bybyby"> by </span> {this.props.authorName}
                 </p>

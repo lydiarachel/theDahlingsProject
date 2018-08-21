@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import categories from "../../utils/Categories";
-import { Row, Input } from 'react-materialize'
 
 class GistForm extends Component {
   state = {
@@ -70,33 +69,30 @@ class GistForm extends Component {
             </div>
           </div>
           
-        <Row>
-          <Input
-              s={6}
-              ref = 'select'
-              type="select"
-              label="Select A Category"
+          <div className="row">
+            <div className="input-field col s6">
+              <select
               value={this.state.gistCategory}
               onChange={this.handleChange}
             >
-              <option  value="" disabled>
+              <option value="" disabled>
                 Choose a Category
               </option>
               {categories.map(category => {
                 return (
-                 <option
-                  
+                  <option
                     data-id={category.id}
                     key={category.id}
                     value={category.id}
                   >
                     {category.label}
                   </option>
-                  
-                )
+                );
               })}
-            </Input>
-          </Row>
+              </select>
+              <label>Select A Category</label>
+            </div>
+          </div>
           <button
             className="btn waves-effect waves-light right"
             type="submit"

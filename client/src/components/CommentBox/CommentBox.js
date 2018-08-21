@@ -5,8 +5,22 @@ import './CommentBox.css'
 
 class CommentBox extends Component{
     state = {
-        commentInput:""
+        commentInput:"",
+        user: {}
     }
+
+
+    componentDidMount(){
+        API.getAuthenticatedUser()
+            .then(user => {
+                if (user) {
+                    this.setState({ user: user.data })
+                } else {
+                    return
+                }
+            })
+    }
+
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -25,7 +39,7 @@ class CommentBox extends Component{
           API.createComment({
               comment:this.state.commentInput,
               gistId: this.props._id, 
-              author: "a929728a5394e821e79dc220"
+              author: this.state.user._id
             }).then(this.props.method)
         
         }
@@ -39,6 +53,33 @@ class CommentBox extends Component{
         return (
             <div className="row">
             <div className="col s11 m11">
+            <form className="form">
+   
+                <div className = 'input-field comment-input col s12'>
+                <input
+                    value={this.state.commentInput}
+                    name="commentInput"
+                    onChange={this.handleInputChange}
+                    type="text"
+                />
+
+                 <label htmlFor="comment">Enter Comment</label>
+             
+               
+         
+
+                <button 
+                    className="btn waves-effect waves-light btn-small btn-gist-page"
+                    type="submit"
+                    name="action"
+                    onClick={this.handleFormSubmit}
+                    >
+                    Comment
+                    <i className="material-icons right">send</i>
+                    </button>
+                    </div>
+                </form>
+
                 <h2 className="gist-comment">Comments </h2>
                 <div>
                 {this.props.comments.map(comment => (
@@ -50,32 +91,7 @@ class CommentBox extends Component{
                     />
                 ))}
                 </div>
-                <form className="form">
-   
-                <div className = 'input-field col s12'>
-                <input
-                    value={this.state.commentInput}
-                    name="commentInput"
-                    onChange={this.handleInputChange}
-                    type="text"
-                />
-
-                 <label htmlFor="comment">Enter Comment</label>
-             
-                </div>
-         
-
-                <button 
-                    className="btn waves-effect waves-light right"
-                    type="submit"
-                    name="action"
-                    onClick={this.handleFormSubmit}
-                    >
-                    Comment
-                    <i className="material-icons right">send</i>
-                    </button>
-
-                </form>
+                
                 
 
             </div>

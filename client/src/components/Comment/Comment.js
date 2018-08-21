@@ -2,23 +2,18 @@ import React from "react"
 import './Comment.css'
 const Comment = props => {
   return (
+    <div>
     <div className="row">
-      <div className="col s12 m6">
-        <div className="card gist-card-styling">
-          <div className="card-content white body">
-            <div>
-              <p id="comment-body">{props.comment}</p>
-            </div>
-           
-            
-              <p className="gist-date right-align">{props.date}</p>
-              <p className="gist-author right-align">
-                <span className="bybyby"> by </span> {props.authorName}
-              </p>
-           
-          </div>
-        </div>
+      <div className="col s6 m9 comment-body gist-body-comment">
+          <p>{props.comment}</p>
       </div>
+      <div className="col s6 m3 comment-body">
+          <p className="gist-date right-align">{props.date.toLocaleString()}</p>
+          <p className="gist-comment-author right-align">by {props.authorName}
+        </p>
+      </div>
+    </div>
+    
     </div>
   );
 };
