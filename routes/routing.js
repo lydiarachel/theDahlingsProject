@@ -258,7 +258,7 @@ router.get('/suggestion/find', (req, res, next) => {
 
 const checkAuthStatus = (req, res, next) => {
     if (!req.user) {
-        res.redirect('/auth/login')
+        res.send(false)
     } else {
         next()
     }
