@@ -1,7 +1,7 @@
 /* COLORS */
 :root {
   --dark-gray: #333;
-  --light-gray: #eee;
+  --light-gray: #666;
   --white: #fafafa;
   --cyan: #00bcd4; 
   --black: #000000;
@@ -11,7 +11,7 @@
 /* font-family: 'Cantata One', serif; */
 
 body {
-  margin-top: 120px;
+  margin-top: 100px;
   background: var(--dark-gray);
   color: var(---white);
   box-sizing: border-box;

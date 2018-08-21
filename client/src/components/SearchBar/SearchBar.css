@@ -1,11 +1,11 @@
-.input-field {
-    height: 150px;
-    width: 75%;
+.search-field {
+    height: 100px;
+    width: 60%;
     margin: 0 auto;
 }
 
 #search {
-    font-size: 60px;
+    font-size: 40px;
     padding-left: 6rem;
     height: 100%;
     width: fill-available;
@@ -22,7 +22,7 @@
 }
 
 .search-icon {
-    font-size: 60px;
+    font-size: 40px;
     line-height: 2.5;
     color: var(--cyan);
 }
