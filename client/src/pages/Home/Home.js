@@ -11,7 +11,9 @@ class Home extends React.Component {
   state = {
     search: "",
     results: [],
-    error: ""
+    error: "",
+    hide: "hide",
+    user:{}
   }
   
   componentDidMount() {
@@ -23,6 +25,20 @@ class Home extends React.Component {
         })
       })
       .catch(err => console.log(err));
+
+        API.getAuthenticatedUser()
+            .then(user => {
+              console.log(user.data.message)
+                if (!(user.data.message == 'Route not found')) {
+                    this.setState({ user: user.data })
+                    this.setState({ hide: ''})
+                } else {
+                    return
+                }
+                console.log(this.state.hide)
+                console.log(this.state.user)
+            })
+  
   }
 
   // Update search value on every change
@@ -53,9 +69,11 @@ class Home extends React.Component {
           handleKeyPress={this.handleKeyPress}/>
    
         
-          <div className="action-buttons">
-            <ActionButtons />
-          </div>
+        <div className={"action-buttons " + this.state.hide}>
+          <ActionButtons />
+        </div>
+
+    
 
           <div className="title">
             <Heading>Top Rated Gists</Heading>

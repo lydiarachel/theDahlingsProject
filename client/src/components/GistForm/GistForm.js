@@ -6,15 +6,27 @@ class GistForm extends Component {
   state = {
     gistTitle: "",
     gistBody: "",
-    gistCategory: ""
+    gistCategory: "",
+    user: {}
   };
 
-  componentDidMount() {
+  componentDidMount(){
+    API.getAuthenticatedUser()
+        .then(user => {
+            if (user) {
+                this.setState({ user: user.data })
+            } else {
+                return
+            }
+        })
+        
+
     const selects = document.querySelectorAll('select');
     for (var i = 0; i < selects.length; i++) {
       window.M.FormSelect.init(selects[i]);
     }
   }
+
 
   handleChange = event => {
     this.setState({ gistCategory: event.target.value });
@@ -33,8 +45,8 @@ class GistForm extends Component {
       title: this.state.gistTitle,
       body: this.state.gistBody,
       category: this.state.gistCategory,
-      author: "dfa2e0e0c2961ecdc692a06e"
-    });
+      author: this.state.user._id
+    })
     this.setState({ gistTitle: "" });
     this.setState({ gistBody: "" });
     this.setState({ gistCategory: "" });

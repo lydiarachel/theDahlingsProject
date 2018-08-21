@@ -11,11 +11,22 @@ class Search extends React.Component {
   state = {
     results: [],
     search: "",
+    user: {},
+    hide: 'hide'
   }
 
   componentDidMount() {
+    API.getAuthenticatedUser()
+        .then(user => {
+            if (!(user.data.message === 'Route not found')) {
+                this.setState({ user: user.data })
+                this.setState({hide: ''})
+            } else {
+                return
+            }
+        })
     console.log(this.props.match.params)
-    // Gettign params from the URL and use them as query to database
+    // Getting params from the URL and use them as query to database
     if(this.props.match.params.category){
       this.fetchGistsByCategory();
     }
@@ -83,7 +94,7 @@ class Search extends React.Component {
           handleKeyPress={this.handleKeyPress}/>
         </div>
         
-        <div className="action-buttons">
+        <div className={"action-buttons " + this.state.hide}>
           <ActionButtons />
         </div>
 
