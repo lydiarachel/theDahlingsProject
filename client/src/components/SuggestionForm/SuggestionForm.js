@@ -1,16 +1,26 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import categories from "../../utils/Categories";
-import { Row, Input } from 'react-materialize'
+import { Row, Input } from 'react-materialize';
+
 class SuggestionForm extends Component {
   state = {
     suggestionTitle: "",
     suggestionBody: "",
     gistCategory: ""
   };
+
+  componentDidMount() {
+    const selects = document.querySelectorAll('select');
+    for (var i = 0; i < selects.length; i++) {
+      window.M.FormSelect.init(selects[i]);
+    }
+  }
+
   handleChange = event => {
     this.setState({ gistCategory: event.target.value });
   };
+  
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -38,6 +48,7 @@ class SuggestionForm extends Component {
     this.setState({ gistCategory: "" });
   };
   render() {
+    console.log(categories, this.state.gistCategory);
     return (
       <div className="row">
         <form className="col s12">

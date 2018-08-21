@@ -7,8 +7,8 @@ import './NavBar.css';
 class NavBar extends Component {
   render() {
     return (
-      <div className="navbar-fixed">
-        <nav className="nav-extended">
+      <div>
+        <nav className="nav-extended fixed">
           <div className="nav-wrapper">
 
             {/* Logo */}
