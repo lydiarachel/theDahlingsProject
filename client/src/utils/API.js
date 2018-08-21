@@ -45,6 +45,8 @@ export default {
     // AUTHENTICATION
     loginGoogle: () => {
         return axios.get('/auth/google')
-    }
+    },
+    
+    getAuthenticatedUser: () => axios.get('/user/profile')
 
 }
