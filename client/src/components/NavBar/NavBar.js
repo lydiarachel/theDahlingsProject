@@ -65,7 +65,10 @@ class NavBar extends Component {
         </nav>
 
         {/* Sidebar */}
-        <SideBar />
+        <SideBar
+        logOut = {this.props.logOut}
+        hide ={this.props.hide}
+        show = {this.props.show}/>
 
         {/* Dropdown Structure */}
         <ul id="dropdown1" className="dropdown-content">

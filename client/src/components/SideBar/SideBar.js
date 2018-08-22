@@ -51,8 +51,11 @@ class SideBar extends Component {
           </Link>
         </li>
         <li>
-          <Link to='/auth' className="sidenav-close waves-effect">
-            <i className="material-icons side-icons">account_circle</i>Log In/Sign Out
+          <Link to='/auth' className={`sidenav-close waves-effect ${this.props.show}`} >
+            <i className="material-icons side-icons">account_circle</i>Log In
+          </Link>
+          <Link to='#' className={`sidenav-close waves-effect ${this.props.hide}`} onClick = {this.props.logOut}>
+            <i className="material-icons side-icons">account_circle</i>Sign Out
           </Link>
         </li>
       </ul>
