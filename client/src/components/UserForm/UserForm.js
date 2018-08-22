@@ -10,6 +10,7 @@ class UserForm extends Component {
     interest: '',
     knowledge: '',
     image: '',
+    password2: ''
   };
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -28,6 +29,9 @@ class UserForm extends Component {
     else if (!this.state.password){
       alert('Please enter a password')
     }
+    else if (!this.state.password2){
+      alert('Please Confirm Your Password')
+    }
     else if(!this.state.interest){
       alert('Please enter some Interest')
     }
@@ -42,16 +46,17 @@ class UserForm extends Component {
       new_user.name = `${this.state.first_name} ${this.state.last_name}`;
       new_user.email = this.state.email;
       new_user.password = this.state.password;
+      new_user.password2 = this.state.password2
       new_user.knowledge = (this.state.knowledge).split(', ');
       new_user.interests = (this.state.interest).split(', ');
       new_user.image = this.state.image;
 
       API.registerUser(new_user)
         .then(success => {
-          if (success.data = 'Email address already taken') {
+          if (success.data === 'Email address already taken') {
             alert(success.data)
           } else {
-            window.location.assign('/')
+           console.log(success)
           }
         })
 
@@ -60,6 +65,7 @@ class UserForm extends Component {
         first_name: '',
         last_name: '',
         password: '',
+        password2: '',
         knowledge: '',
         interest: '',
         image: ''
@@ -131,6 +137,15 @@ class UserForm extends Component {
               onChange={this.handleInputChange}
               />
               <label htmlFor="password">Password</label>
+            </div>
+            <div className="input-field col s12">
+              <input 
+              name="password2"
+              type="password"
+              value={this.state.password2}
+              onChange={this.handleInputChange}
+              />
+              <label htmlFor="password">Confirm Password</label>
             </div>
           </div>
           <button
