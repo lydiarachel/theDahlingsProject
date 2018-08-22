@@ -100,7 +100,7 @@ class Home extends React.Component {
                 author={result.author.name}
                 category={result.category}
                 likes={result.liked}
-                date={result.date}
+                date = {new Date(result.date).toLocaleString('en-US',{hour12:true})}
                 key={result._id}
                 id={result._id}
                 />

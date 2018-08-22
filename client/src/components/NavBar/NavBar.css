@@ -27,15 +27,17 @@ nav ul li:hover {
     margin-left: 2rem;
     font-size: 1.5rem;
 }
-#gist-logo-horizontal {
+
+.gist-logo-horizontal {
     display: inline-block;
     width: 50px;
     vertical-align: top;
     word-wrap: break-word;
     line-height: 2rem;
+    color: var(--white);
 }
 
-#gist-logo-vertical {
+.gist-logo-vertical {
     display: inline-block;
     /* Safari */
     -webkit-transform: rotate(-90deg);
@@ -55,4 +57,14 @@ nav ul li:hover {
 
 a.brand-logo {
     height: 100%;
+}
+
+
+@media screen and (max-width: 600px) {
+    .gist-logo-vertical {
+        width: 56px;
+    }
+    #side-logo {
+        width: 64px;
+    }
 }

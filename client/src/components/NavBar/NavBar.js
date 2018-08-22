@@ -15,8 +15,8 @@ class NavBar extends Component {
             {/* Logo */}
             <Link to="/" className="brand-logo">
               <div className="gist-logo">
-                <span id="gist-logo-horizontal">get the</span>
-                <span id="gist-logo-vertical">gist</span>
+                <span className="gist-logo-horizontal">get the</span>
+                <span className="gist-logo-vertical">gist</span>
               </div>
             </Link>
 

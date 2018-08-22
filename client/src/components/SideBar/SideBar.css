@@ -1,0 +1,20 @@
+.sidenav {
+    background: var(--cyan);
+    
+}
+
+.brand-logo-side {
+    font-family: 'Cantata One', serif;
+    background: var(--black);
+    padding: 8px 0;
+}
+
+
+.sidenav li>a,
+.sidenav li>a>i.material-icons {
+    color: var(--black);
+}
+
+.side-gistegories {
+    background: var(--white);
+}
