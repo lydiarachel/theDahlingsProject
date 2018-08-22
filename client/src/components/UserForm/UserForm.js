@@ -38,20 +38,23 @@ class UserForm extends Component {
       alert('Please Enter a valid Email')
     }
     else{
-      let name = `${this.state.first_name} ${this.state.last_name}`;
-      let email = this.state.email;
-      let password = this.state.password;
-      let knowledge = (this.state.knowledge).split(', ');
-      let interests = (this.state.interest).split(', ');
-      let image = this.state.image;
-      API.createUser({
-        email: email,
-        name: name,
-        password: password,
-        knowledge: knowledge,
-        interested: interests,
-        imageUrl: image
-      })
+      const new_user = {}
+      new_user.name = `${this.state.first_name} ${this.state.last_name}`;
+      new_user.email = this.state.email;
+      new_user.password = this.state.password;
+      new_user.knowledge = (this.state.knowledge).split(', ');
+      new_user.interests = (this.state.interest).split(', ');
+      new_user.image = this.state.image;
+
+      API.registerUser(new_user)
+        .then(success => {
+          if (success.data = 'Email address already taken') {
+            alert(success.data)
+          } else {
+            window.location.assign('/')
+          }
+        })
+
       this.setState({
         email: '',
         first_name: '',
