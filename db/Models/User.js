@@ -8,7 +8,7 @@ const userSchema = new Schema({
   googleId: { type: String, required: false},
   password: { type: String, required: false},
   knowledge: Array,
-  interested: Array,
+  interests: Array,
   imageUrl: String,
   comments:[{
     type: Schema.Types.ObjectId,
