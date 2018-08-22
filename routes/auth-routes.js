@@ -21,7 +21,7 @@ router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
 // register new user with username and password
 router.post('/register', (req, res) => {
     const new_user = req.body
-    control.User.findUserByEmail(new_user.email, (err, user) => {
+    control.User.getUserByEmail(new_user.email, (err, user) => {
         if (err) throw err
 
         if (user) {
