@@ -10,7 +10,7 @@ import './App.css';
 import AddGist from './pages/AddGist';
 import AddSuggestion from './pages/AddSuggestion';
 import CreateProfile from './pages/CreateProfile/CreateProfile';
-import Suggestions from './pages/Suggestion/Suggestion';
+import Suggestions from './pages/Suggestion/Suggestions';
 
 import API from './utils/API'
 
