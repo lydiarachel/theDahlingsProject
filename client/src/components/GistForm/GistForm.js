@@ -10,23 +10,19 @@ class GistForm extends Component {
     user: {}
   };
 
-  componentDidMount(){
-    API.getAuthenticatedUser()
-        .then(user => {
-            if (user) {
-                this.setState({ user: user.data })
-            } else {
-                return
-            }
-        })
-        
-
-    const selects = document.querySelectorAll('select');
+  componentDidMount() {
+    API.getAuthenticatedUser().then(user => {
+      if (user) {
+        this.setState({ user: user.data });
+      } else {
+        return;
+      }
+    });
+    const selects = document.querySelectorAll("select");
     for (var i = 0; i < selects.length; i++) {
       window.M.FormSelect.init(selects[i]);
     }
   }
-
 
   handleChange = event => {
     this.setState({ gistCategory: event.target.value });
@@ -37,7 +33,7 @@ class GistForm extends Component {
       [name]: value
     });
   };
-  
+
   handleFormSubmit = (event, data) => {
     event.preventDefault();
     console.log(this.state.gistCategory);
@@ -46,15 +42,11 @@ class GistForm extends Component {
       body: this.state.gistBody,
       category: this.state.gistCategory,
       author: this.state.user._id
-    })
-    this.setState({ gistTitle: "" });
-    this.setState({ gistBody: "" });
-    this.setState({ gistCategory: "" });
+    });
+    this.setState({ gistTitle: "" }, { gistBody: "" }, { gistCategory: "" });
   };
-  
-  render()
-  
-   {
+
+  render() {
     return (
       <div className="row">
         <form className="col s12">
@@ -80,27 +72,27 @@ class GistForm extends Component {
               <label htmlFor="gist body">Gist Content</label>
             </div>
           </div>
-          
+
           <div className="row">
             <div className="input-field col s6">
               <select
-              value={this.state.gistCategory}
-              onChange={this.handleChange}
-            >
-              <option value="" disabled>
-                Choose a Category
-              </option>
-              {categories.map(category => {
-                return (
-                  <option
-                    data-id={category.id}
-                    key={category.id}
-                    value={category.id}
-                  >
-                    {category.label}
-                  </option>
-                );
-              })}
+                value={this.state.gistCategory}
+                onChange={this.handleChange}
+              >
+                <option value="" disabled>
+                  Choose a Category
+                </option>
+                {categories.map(category => {
+                  return (
+                    <option
+                      data-id={category.id}
+                      key={category.id}
+                      value={category.id}
+                    >
+                      {category.label}
+                    </option>
+                  );
+                })}
               </select>
               <label>Select A Category</label>
             </div>

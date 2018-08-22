@@ -1,0 +1,31 @@
+.suggestion-body {
+    color: white;
+    border-top: 2px solid var(--cyan);
+    text-align: justify;
+}
+
+.gist-comment-author {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.like-icon {
+    margin-right: 10px;
+}
+
+.gist-liked {
+    margin: 10px ;
+}
+.add-gist{
+    margin: 10px;
+}
+
+.gist-category {
+    color: white;
+    text-align: justify;
+    font-family: 'Cantata One', serif;
+    font-style: italic;
+    font-size: 12px;
+    vertical-align: bottom;
+}
