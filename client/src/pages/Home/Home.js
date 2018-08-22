@@ -12,12 +12,11 @@ class Home extends React.Component {
     search: "",
     results: [],
     gists: [],
-    error: "",
-    hide: "hide",
-    user:{}
+    error: ""
   }
   
   componentDidMount() {
+    console.log(this.props)
     API.findGists()
       .then(result => {
         console.log(result.data);
@@ -26,19 +25,6 @@ class Home extends React.Component {
         })
       })
       .catch(err => console.log(err));
-
-    API.getAuthenticatedUser()
-      .then(user => {
-        console.log(user.data.message)
-        if (!(user.data.message == 'Route not found')) {
-            this.setState({ user: user.data })
-            this.setState({ hide: ''})
-        } else {
-            return
-        }
-        console.log(this.state.hide)
-        console.log(this.state.user)
-      })
   }
 
   // Update search value on every change
@@ -93,7 +79,7 @@ class Home extends React.Component {
           handleKeyPress={this.handleKeyPress}/>
    
         
-          <div className={"action-buttons " + this.state.hide}>
+          <div className={"action-buttons " + this.props.hide}>
             <ActionButtons />
           </div>
 

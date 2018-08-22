@@ -3,9 +3,6 @@ import Heading from "../../components/Heading";
 import GistForm from "../../components/GistForm";
 
 class AddGist extends Component {
-  componentDidMount(){
-    console.log(this.props.match.params)
-  }
   render() {
     return (
       <div>
@@ -14,9 +11,10 @@ class AddGist extends Component {
         </div>
 
         <div className="row" />
-        <GistForm 
-        title= {this.props.match.params.title}
-        category = {this.props.match.params.category}/>
+        <GistForm
+        hide = {this.props.hide}
+        user = {this.props.user} 
+        />
       </div>
     );
   }

@@ -46,13 +46,18 @@ export default {
     loginGoogle: () => {
         return axios.get('/auth/google')
     },
+
+    logOut: () => {
+        return axios.get('/auth/logout')
+    },
+
     loginLocal: new_user => {
         return axios.post('/auth/local', new_user)
     },
     registerUser: new_user => {
         return axios.post('http://localhost:8080/auth/register', new_user)
     },
-    
+  
     getAuthenticatedUser: () => axios.get('/user/profile')
 
 }

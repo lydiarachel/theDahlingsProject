@@ -2,7 +2,7 @@ import React from "react";
 import Heading from "../../components/Heading";
 import SuggestionForm from "../../components/SuggestionForm";
 
-const AddSuggestion = () => (
+const AddSuggestion = props => (
   <div>
     
 
@@ -11,7 +11,8 @@ const AddSuggestion = () => (
     </div>
 
     <div className="row" />
-    <SuggestionForm />
+    <SuggestionForm 
+    user = {props.user}/>
   </div>
 );
 
