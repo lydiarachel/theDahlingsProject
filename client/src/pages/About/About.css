@@ -1,0 +1,58 @@
+.background-white {
+    background-color: white !important;
+}
+
+.about-title{
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.about-motto {
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.background-image-collage{
+    background: url("/images/collage.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 600px;
+    width: 600px;
+    margin-top: -50px;
+    margin-left: 50px;
+}
+
+.idea {
+    height: 50%;
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
+
+.share {
+    height: 200px;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20%;
+}
+
+.heart {
+    height: 200px;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20%;
+}
+
+.about-text{
+    text-align: center;
+}
+
