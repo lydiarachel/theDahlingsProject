@@ -10,7 +10,7 @@ nav {
     background-color: var(--dark-gray);
 }
 .nav-wrapper {
-    background: var(--dark-gray);
+    background: #111;
     font-family: 'Cantata One', serif;
     border-bottom: 1px solid var(--cyan);
 }
@@ -46,7 +46,7 @@ nav ul li:hover {
     /* Opera */
     -o-transform: rotate(-90deg);
     
-    background: var(--white);
+    background: var(--cyan);
     color: var(--dark-gray);
     text-align: center;
     width: 64px;

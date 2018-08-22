@@ -16,7 +16,7 @@ const SearchBar = props => (
           autoComplete="off"
           required />
           <label className="label-icon" htmlFor="search"><i className="material-icons search-icon">search</i></label>
-          <i className="material-icons">close</i>
+          <i className="material-icons" onClick={props.clearSearchbar}>close</i>
         </div>
       </form>
     </div>

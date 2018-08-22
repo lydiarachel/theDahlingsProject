@@ -40,8 +40,8 @@ class SideBar extends Component {
 
         {/* Links to other pages */}
         <li>
-          <Link to='/search-results' className="sidenav-close waves-effect">
-            <i className="material-icons">search</i>Search
+          <Link to='/suggestions' className="sidenav-close waves-effect">
+            <i className="material-icons">lightbulb_outline</i>Suggestions
           </Link>
         </li>
         <li>
