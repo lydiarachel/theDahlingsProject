@@ -10,7 +10,7 @@ import './App.css';
 import AddGist from './pages/AddGist';
 import AddSuggestion from './pages/AddSuggestion';
 import CreateProfile from './pages/CreateProfile/CreateProfile';
-import Suggestion from './pages/Suggestion/suggestion';
+import Suggestions from './pages/Suggestion/Suggestion';
 
 import API from './utils/API'
 
@@ -44,7 +44,8 @@ class App extends Component {
           <Route exact path="/add-suggestion" component= {AddSuggestion} />
           <Route exact path="/search/:category" component= {Search} />
           <Route exact path="/create-profile" component= {CreateProfile} />
-          <Route exact path="/suggestions" component= {Suggestion} />
+          <Route exact path="/suggestions" component= {Suggestions} />
+          <Route exact path="/add-gist/:title/:category" component ={AddGist} />
         </div>
       </Router>
     )
