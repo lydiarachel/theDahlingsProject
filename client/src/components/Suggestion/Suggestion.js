@@ -49,7 +49,7 @@ class Suggestion extends Component {
               </p>
             </div>
             <div className="col s6 m9">
-              <p className="gist-category">Category: {this.props.category}</p>
+              <p className="suggestion-category">Category: {this.props.category}</p>
             </div>
           </div>
         </div>
