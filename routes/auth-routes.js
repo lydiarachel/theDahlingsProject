@@ -4,8 +4,9 @@ const control = require('../controller')
 
 // auth logout
 router.get('/logout', (req, res) => {
-    req.logout()
-})
+    req.logOut()
+    res.json(req.user)
+    })
 
 // auth with google+
 router.get('/google', passport.authenticate('google', {

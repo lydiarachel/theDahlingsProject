@@ -46,7 +46,9 @@ export default {
     loginGoogle: () => {
         return axios.get('/auth/google')
     },
-    
+    logOut: () => {
+        return axios.get('/auth/logout')
+    },
     getAuthenticatedUser: () => axios.get('/user/profile')
 
 }

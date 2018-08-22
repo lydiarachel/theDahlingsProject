@@ -6,19 +6,10 @@ class SuggestionForm extends Component {
     suggestionTitle: "",
     suggestionBody: "",
     gistCategory: "",
-    user: {}
+    
   };
 
   componentDidMount(){
-    API.getAuthenticatedUser()
-        .then(user => {
-            if (user) {
-                this.setState({ user: user.data })
-            } else {
-                return
-            }
-        })
-
     const selects = document.querySelectorAll('select');
     for (var i = 0; i < selects.length; i++) {
       window.M.FormSelect.init(selects[i]);
@@ -50,7 +41,7 @@ class SuggestionForm extends Component {
       title: this.state.suggestionTitle,
       suggestion: this.state.suggestionBody,
       category: this.state.gistCategory,
-      author: this.state.user._id
+      author: this.props.user._id
     });
     this.setState({ suggestionTitle: "" });
     this.setState({ suggestionBody: "" });

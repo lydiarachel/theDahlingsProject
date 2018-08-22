@@ -10,23 +10,12 @@ class Gist extends React.Component {
       gistResult: [],
       likes: '',
       gistId: '',
-      hide: 'hide',
-      user: {}
   }
 
   componentDidMount(){
-    API.getAuthenticatedUser()
-        .then(user => {
-            if (!(user.data.message === "Route not found")) {
-                this.setState({ user: user.data })
-                this.setState({ hide: ''})
-            } else {
-                return
-            }
-        })
-    console.log (this.state);
-    console.log(this.props.match.params)
-   this.findGist()
+    console.log (this.props);
+    console.log(this.props.match)
+  this.findGist()
   }
   updateLikes = () => {
     let likeUpdate = (this.state.likes + 1)
@@ -58,7 +47,7 @@ class Gist extends React.Component {
     
     return(
   <div>
-    <div className={"action-buttons " + this.state.hide}>
+    <div className={"action-buttons " + this.props.hide}>
       <ActionButtons />
     </div>
 
@@ -76,6 +65,8 @@ class Gist extends React.Component {
     
     <div className="row">
       <CommentBox 
+      user = {this.props.user}
+      hide = {this.props.hide}
       _id={this.state.gistResult[0]._id}
       method ={this.findGist}
       comments={this.state.gistResult[0].comments}
