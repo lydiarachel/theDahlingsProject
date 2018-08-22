@@ -4,7 +4,7 @@ class GoogleAuthBtn extends Component {
 
     render(){
         return (
-            <a href='http://localhost:8080/auth/google' className='btn btn-large btn-auth-page'>Sing in with Google+</a>
+            <a href='http://localhost:8080/auth/google' className='btn btn-large btn-auth-page'>Google+</a>
         )
     }
 }

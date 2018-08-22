@@ -29,11 +29,6 @@ class NavBar extends Component {
                 </a>
               </li>
               <li>
-                <Link to='/search-results' className="waves-effect waves-light">
-                  Search
-                </Link>
-              </li>
-              <li>
                 <Link to='/about' className="waves-effect waves-light">
                   About
                 </Link>
