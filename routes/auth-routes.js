@@ -21,15 +21,18 @@ router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
 // register new user with username and password
 router.post('/register', (req, res) => {
     const new_user = req.body
-    control.User.registerFromLocalAuth(new_user)
-        .then(success => {
-            if (!success) {
-                res.send('Username already taken')
-            } else {
-                res.redirect('/auth')
-            }
-        })
-        
+    control.User.findUserByEmail(new_user.email, (err, user) => {
+        if (err) throw err
+
+        if (user) {
+            res.send('Email address already taken.')
+        } else {
+            control.User.registerUser(new_user, (err, user) => {
+                if (err) throw err
+                console.log(user)
+            })
+        }
+    })  
 })
 
 // authenticate with Local strategy
@@ -38,7 +41,10 @@ router.post('/local',
         successRedirect: '/',
         failureRedirect: '/auth' 
     }),
-    (req, res) => res.redirect('/')
+    (req, res) => {
+        console.log(req.user)
+        res.send(req.user)
+    }
 )
 
 module.exports = router
