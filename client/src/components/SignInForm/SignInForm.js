@@ -16,6 +16,7 @@ class SignInForm extends Component {
   };
   handleFormSubmit = event => {
     event.preventDefault()
+    console.log(this.state.email, this.state.password)
     if(!this.state.email){
       alert('Please enter a Email')
     }
@@ -23,9 +24,18 @@ class SignInForm extends Component {
       alert('Please enter a Password')
     }
     else{
-      API.authUser({
+      API.loginLocal({
         email: this.state.email,
         password: this.state.password
+      }).then(user => {
+        if (user.data.message !== 'Route not found') {
+          API.getAuthenticatedUser()
+            .then(user => {
+              if (user) {
+                window.location.assign('/')
+              }
+            })
+        }
       })
       
     }
@@ -57,6 +67,7 @@ class SignInForm extends Component {
                 <button
                   className="btn waves-effect waves-light btn-large btn-auth-page"
                   type="submit"
+                  onClick={this.handleFormSubmit}
                   name="action">
                     Log In
                     <i className="material-icons left"></i>

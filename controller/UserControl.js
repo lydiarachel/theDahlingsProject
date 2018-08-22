@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose')
 const { User } = require('../db').Models
+const bcrypt = require('bcryptjs')
 
 //  Add new user to database
 exports.create = new_user => {
@@ -23,5 +24,40 @@ exports.find = params =>{
 exports.findOneAndUpdate = params =>{
    return User.findOneAndUpdate(params) 
 }
+
+exports.getUserByEmail = (email, cb) => {
+    User.findOne({ email }, cb)
+}
+
+exports.comparePassword = (candidatePassword, hash, cb) => {
+    bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
+        if (err) throw err
+        cb(null, isMatch)
+    })
+}
+
+exports.registerUser = (new_user, cb) => {
+    const really_new_user = new User(new_user)
+    bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(really_new_user.password, salt, (err, hash) => {
+            really_new_user.password = hash
+            really_new_user.save(cb)
+        })
+    })
+}
+
+// exports.registerFromLocalAuth(req_new_user => {
+//     User.findOne({ name: {
+//         $regex: `^${req_new_user.name}\\b`,
+//         $options: 'i'
+//     }}).then(user => {
+//         if (user) {
+//             return false
+//         } else {
+//             const new_user = new User(req_new_user)
+//             return 
+//         }
+//     })
+// })
 
 
