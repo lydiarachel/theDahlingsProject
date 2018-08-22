@@ -19,8 +19,19 @@ router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
     res.redirect('http://localhost:3000/')
 })
 
+// new user validation midleware
+const userValidation = (req, res, next) => {
+    const { password, password2 } = req.body
+
+    if (password !== password2) {
+        res.status(400).json({message: 'Passwords do not match'})
+    } else {
+        next()
+    }
+}
+
 // register new user with username and password
-router.post('/register', (req, res) => {
+router.post('/register', userValidation, (req, res) => {
     const new_user = req.body
     control.User.getUserByEmail(new_user.email, (err, user) => {
         if (err) throw err
