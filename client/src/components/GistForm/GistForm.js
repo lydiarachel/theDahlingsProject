@@ -35,15 +35,23 @@ class GistForm extends Component {
   };
 
   handleFormSubmit = (event, data) => {
-    event.preventDefault();
-    console.log(this.state.gistCategory);
+    event.preventDefault();   
+    if (
+      !this.state.gistBody &&
+      !this.state.gistTitle &&
+      !this.state.gistCategory
+    ) {
+      window.M.toast({html: "All fields need to be field out", classes: 'cyan'});
+    }
     API.createGist({
       title: this.state.gistTitle,
       body: this.state.gistBody,
       category: this.state.gistCategory,
       author: this.props.user._id
-    });
-    this.setState({ gistTitle: "", gistBody: "", gistCategory: "" });
+    }).then(() =>{
+      this.setState({ gistTitle: "", gistBody: "", gistCategory: "" });
+      window.M.toast({html: 'Thanks for Creating a Gist', classes: 'cyan'})
+      })
   };
 
   render() {
@@ -98,7 +106,7 @@ class GistForm extends Component {
             </div>
           </div>
           <button
-            className="btn waves-effect waves-light right"
+            className="btn waves-effect waves-light right btn-gist-page"
             type="submit"
             name="action"
             onClick={this.handleFormSubmit}
