@@ -17,43 +17,43 @@ class Auth extends Component {
           </p>
         </div>
 
-        <div className="sub-title">
-          Sign in to continue to your account
-        </div>
-
-        <div className="row">
-          <SignInForm />
-        </div>
         
-        <div className="row auth-options">
-          <div>
-            
-            <div className="sub-title">
-              New Here?
-            </div>
 
-            <Link to="/create-profile"
-                className="btn-large btn-auth-page"
-            >
-                  Sign Up
-                  <i className="material-icons right"></i>
-            </Link> 
+        <div className="row auth-row">
+          <div className="auth-form">
+            <div className="sub-title">
+              Sign in to continue to your account
+            </div>
+            <SignInForm />
           </div>
 
-          <div>
-            <div className="sub-title">
-              Keep browsing as a guest
+          <div className="auth-options">
+            <div>
+              <div className="sub-title">
+                New Here?
+              </div>
+
+              <Link to="/create-profile"
+                  className="btn-large btn-auth-page sign-up">
+                    Sign Up
+                    <i className="material-icons right"></i>
+              </Link> 
             </div>
 
-            <Link to="/"
-                className="btn-large btn-auth-page"
-            >
-                  Continue as a Guest
-                  <i className="material-icons right"></i>
-            </Link> 
+            <div>
+              <div className="sub-title">
+                Keep browsing as a guest
+              </div>
+
+              <Link to="/"
+                  className="btn-large btn-auth-page"
+              >
+                    Continue as a Guest
+                    <i className="material-icons right"></i>
+              </Link> 
+            </div>
           </div>
-        </div>
-        
+        </div> 
       </div>
     )
   }

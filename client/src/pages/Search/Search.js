@@ -92,7 +92,7 @@ class Search extends React.Component {
           {
             this.state.results.length === 0
             ? (
-                <div>Results will be shown down below</div>
+              <Heading>Results Not Found</Heading>
             ) : (
               <Heading>Search Results</Heading>
             )

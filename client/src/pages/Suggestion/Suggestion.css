@@ -1,15 +1,4 @@
-.search-box {
-    margin: 5rem 0;
-}
 
-.title {
-    margin-left: 4rem;
-    margin-bottom: 2rem;
-}
-
-.row {
-    padding: 0 2rem;
-}
 
 @media screen and (max-width: 900px) {
     .title {

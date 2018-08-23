@@ -29,22 +29,37 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 .signin-form {
-    border: 2px solid var(--cyan);
-    width: 40%;
+    border: 3px solid var(--white);
+    border-radius: 5px;
+    width: 80%;
     margin: 0 auto;
-}
-.form-inside {
-    padding: 20px 0;
+    padding-top: 20px;
 }
 
-@media screen and (max-width: 1200px) {
-    .form {
-        width: 60%;
-    } 
+.remove-padding {
+    padding: 0;
 }
 
-@media screen and (max-width: 980px) {
-    .form {
-        width: 80%;
-    } 
+.buttons-auth {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
+
+@media screen and (min-width: 1200px) {
+    .signin-form {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .buttons-auth {
+        flex-direction: column;
+        margin: 2rem;
+    }
+
+    .btn-auth-page {
+        margin: 5px 0;
+    }
+}
+
