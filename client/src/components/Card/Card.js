@@ -20,7 +20,7 @@ class Card extends Component {
                 <h1 className="gist-title">{this.props.title}</h1>
               </div>
               <div>
-                <p className="gist-date">{this.props.date.toLocaleString()}</p>
+                <p className="gist-date">{new Date(this.props.date).toLocaleString('en-US', {hour12:true})}</p>
                 <p className="gist-author">
                   <span className="bybyby"> by </span> {this.props.authorName}
                 </p>
