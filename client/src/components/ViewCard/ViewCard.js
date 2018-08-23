@@ -14,7 +14,7 @@ const ViewCard = props => (
                 <p>by: {props.author}</p>
                 <p>Category: <span className="gist-category">{props.category}</span></p>
               
-                <p>Created at: {props.date}</p>
+                <p>Created at: {new Date(props.date).toLocaleString()}</p>
               </div>
               
 
