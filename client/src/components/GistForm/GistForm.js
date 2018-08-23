@@ -43,7 +43,7 @@ class GistForm extends Component {
       category: this.state.gistCategory,
       author: this.props.user._id
     });
-    this.setState({ gistTitle: "" }, { gistBody: "" }, { gistCategory: "" });
+    this.setState({ gistTitle: "", gistBody: "", gistCategory: "" });
   };
 
   render() {
