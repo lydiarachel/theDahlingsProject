@@ -29,12 +29,10 @@ class Home extends React.Component {
 
   // Update search value on every change
   handleInputChange = event => {
-    this.setState({ search: event.target.value })
-
-    console.log(event.target.value)
-
+    this.setState({
+      search: event.target.value,
+    }, (event) => {
     if(this.state.search.length > 0){
-      console.log('hit');
       API.searchForGists(this.state.search) // looking for titles that have searched string inside
       .then(res => {
         if (res.data.status === "error") {
@@ -43,26 +41,33 @@ class Home extends React.Component {
         this.setState({ 
           gists: res.data,
         });
-        this.render();
         console.log("Results from search API", res.data)
       })
       .catch(err => this.setState({ error: err.message }));
     }
-    
+    });
   }
 
-  // When Enter is pressed
-  // handleKeyPress = event =>  {
-  //   if (event.key === 'Enter') {
-  //     event.preventDefault();
-  //     console.log("Enter was pressed");
-  //     this.props.history.push('/search-results/' + this.state.search);
-  //   }
-  // };
   clearSearchbar = () => {
     this.setState({ 
-      search: "",
+      search: '',
+      gists: [],
     });
+  }
+
+  sortingByLikes = () => {
+    const forSort = [].concat(this.state.results)
+    .sort((a, b) => {
+      if (a.liked < b.liked) {
+        return 1;
+      }
+      if (b.liked < a.liked) {
+        return -1;
+      }
+      return 0;
+    })
+
+    return forSort;
   }
 
   render() {
@@ -74,11 +79,13 @@ class Home extends React.Component {
     return (
         <div className="homepage">
 
-          <SearchBar search={this.state.search} 
+          <SearchBar
+            search={this.state.search} 
           handleInputChange={this.handleInputChange}
-          handleKeyPress={this.handleKeyPress}/>
+            handleKeyPress={this.handleKeyPress}
+            clearSearchbar={this.clearSearchbar}
+          />
    
-        
           <div className={"action-buttons " + this.props.hide}>
             <ActionButtons />
           </div>
@@ -91,6 +98,7 @@ class Home extends React.Component {
               :
               null
           }
+          
           <div className="row">
             {
               (this.state.gists.length > 0) ?
@@ -115,7 +123,7 @@ class Home extends React.Component {
           
           <div className="row">
             {
-              this.state.results.map(result => (
+              this.sortingByLikes().slice(0, 9).map(result => (
                 <ViewCard title={result.title}
                 author={result.author.name}
                 category={result.category}
