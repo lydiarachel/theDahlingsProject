@@ -35,17 +35,18 @@ class SuggestionForm extends Component {
       !this.state.suggestionTitle &&
       !this.state.gistCategory
     ) {
-      alert("All fields need to be field out");
-    }
+      window.M.toast({html: "All fields need to be field out", classes: 'cyan'});
+    }else{
     API.createSuggestion({
       title: this.state.suggestionTitle,
       suggestion: this.state.suggestionBody,
       category: this.state.gistCategory,
       author: this.props.user._id
-    });
-    this.setState({ suggestionTitle: "" });
-    this.setState({ suggestionBody: "" });
-    this.setState({ gistCategory: "" });
+    }).then(() =>{
+    this.setState({ suggestionTitle: "", suggestionBody: "", gistCategory: "" });
+    window.M.toast({html: 'Thanks for Creating a Su-gist-ion', classes: 'cyan'})
+    })
+  }
   };
   render() {
     console.log(categories, this.state.gistCategory);
@@ -99,7 +100,7 @@ class SuggestionForm extends Component {
             </div>
           </div>
           <button
-            className="btn waves-effect waves-light right"
+            className="btn waves-effect waves-light right btn-gist-page"
             type="submit"
             name="action"
             onClick={this.handleFormSubmit}

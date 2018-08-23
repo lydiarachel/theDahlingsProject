@@ -18,10 +18,10 @@ class SignInForm extends Component {
     event.preventDefault()
     console.log(this.state.email, this.state.password)
     if(!this.state.email){
-      alert('Please enter a Email')
+      window.M.toast({html:'Please enter a Email', classes: 'cyan'})
     }
     else if(!this.state.password){
-      alert('Please enter a Password')
+      window.M.toast({html:'Please enter a Password', classes: 'cyan'})
     }
     else{
       API.loginLocal({
@@ -35,6 +35,9 @@ class SignInForm extends Component {
                 window.location.assign('/')
               }
             })
+        }
+        else{
+          window.M.toast({html: 'Incorrect email password combo', classes: 'cyan'})
         }
       })
       

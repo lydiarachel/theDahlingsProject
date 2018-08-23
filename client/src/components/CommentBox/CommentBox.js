@@ -19,7 +19,7 @@ class CommentBox extends Component{
         // Preventing the default behavior of the form submit (which is to refresh the page)
         event.preventDefault();
         if (!this.state.commentInput) {
-          alert("Please enter a comment before submitting!");
+         window.M.toast({html: "Please enter a comment before submitting!", classes: 'cyan'});
         } else {
             //to do .. add this to database rather than fakeComments Array above
             //when we do this, we will not need to pass id, that will come from the db
