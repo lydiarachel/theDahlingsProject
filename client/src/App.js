@@ -25,8 +25,7 @@ class App extends Component {
     API.getAuthenticatedUser(this.state.user).then(({ data: user }) => {
       this.setState({ user });
       if (user) {
-        this.setState({ hide: "" });
-        this.setState({ show: "hide" });  
+        this.setState({ hide: "" , show: 'hide'});
       }
     });
   }

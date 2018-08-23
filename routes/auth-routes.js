@@ -41,7 +41,11 @@ router.post('/register', userValidation, (req, res) => {
         } else {
             control.User.registerUser(new_user, (err, user) => {
                 if (err) throw err
-                console.log(user)
+                
+                passport.authenticate('local')
+                (req, res, () => {
+                    res.send(req.user);
+                  });
             })
         }
     })  

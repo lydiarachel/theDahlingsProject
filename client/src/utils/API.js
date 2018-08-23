@@ -55,7 +55,7 @@ export default {
         return axios.post('/auth/local', new_user)
     },
     registerUser: new_user => {
-        return axios.post('http://localhost:8080/auth/register', new_user)
+        return axios.post('/auth/register', new_user)
     },
   
     getAuthenticatedUser: () => axios.get('/user/profile')
