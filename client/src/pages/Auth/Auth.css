@@ -13,13 +13,24 @@
     font-size: 1.2rem;
 }
 
+.auth-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;  
+}
+
+.auth-form {
+    width: 60%;
+}
+
 .auth-options {
-    width: 50%;
+    width: 40%;
     margin: 0 auto;
     padding: 0px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .sub-title {
@@ -27,4 +38,30 @@
     font-size: 18px;
     margin: 10px 0;
     text-align: center;
+}
+
+.sign-up {
+    border-color: var(--cyan);
+}
+
+@media screen and (max-width: 900px) {
+    .auth-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;  
+    }
+
+    .auth-form {
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .auth-form {
+        width: 90%;
+    }
+    .auth-options {
+        width: 100%;
+    }
 }

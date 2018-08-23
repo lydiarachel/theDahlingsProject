@@ -44,26 +44,29 @@ class SignInForm extends Component {
     return (
         <form className="signin-form">
           <div className="row">
-            <div className="input-field col s12 form-inside">
-              <input
-              name= "email"
-              type="email"
-              value={this.state.email}
-              onChange={this.handleInputChange}
-              />
-              <label htmlFor="email">Email</label>
+            <div className="row remove-padding">
+              <div className="input-field col s12">
+                <input
+                name= "email"
+                type="email"
+                value={this.state.email}
+                onChange={this.handleInputChange}
+                />
+                <label htmlFor="email">Email</label>
+              </div>
+
+              <div className="input-field col s12">
+                <input 
+                name= "password"
+                type="password"
+                value={this.state.password}
+                onChange={this.handleInputChange}/>
+                <label htmlFor="password">Password</label>
+              </div>
             </div>
 
-            <div className="input-field col s12">
-              <input 
-              name= "password"
-              type="password"
-              value={this.state.password}
-              onChange={this.handleInputChange}/>
-              <label htmlFor="password">Password</label>
-            </div>
-
-            <div className="buttons-auth">
+            <div className="row remove-padding">
+              <div className="buttons-auth">
                 <button
                   className="btn waves-effect waves-light btn-large btn-auth-page"
                   type="submit"
@@ -72,10 +75,9 @@ class SignInForm extends Component {
                     Log In
                     <i className="material-icons left"></i>
                   </button>
-            
-              
 
-              <GoogleAuthBtn />
+                <GoogleAuthBtn />
+              </div>
             </div>
           </div>            
         </form>
