@@ -109,6 +109,7 @@ class Home extends React.Component {
                 category={result.category}
                 likes={result.liked}
                 date = {new Date(result.date).toLocaleString('en-US',{hour12:true})}
+                comments={result.comments}
                 key={result._id}
                 id={result._id}
                 />
@@ -129,6 +130,7 @@ class Home extends React.Component {
                 category={result.category}
                 likes={result.liked}
                 date={result.date}
+                comments={result.comments}
                 key={result._id}
                 id={result._id}
                 />

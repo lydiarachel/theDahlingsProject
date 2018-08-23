@@ -12,8 +12,9 @@
     outline-offset: 15px;
 }
 
-.gist-category {
+.samall-card-category {
     text-transform: capitalize;
+    font-weight: bold;
 }
 
 .small-card {
@@ -32,10 +33,13 @@
     color: var(--dark-gray);
 }
 
+.small-card-author {
+    font-weight: bold;
+}
+
 .small-card-icon {
     font-size: 18px;
     color: var(--cyan);
-    
 }
 
 .small-card-rating {
@@ -44,6 +48,14 @@
     right: 20px;
 }
 
+.small-card-rating span {
+    margin-right: 10px;
+}
+
 .small-card-data {
     color: var(--light-gray);
+    font-family: 'Cantata One', serif;
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.5;
 }
