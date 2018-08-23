@@ -57,6 +57,13 @@ class UserForm extends Component {
             alert(success.data)
           } else {
            console.log(success)
+           API.getAuthenticatedUser(success.data)
+           .then(user => {
+            if (user) {
+              console.log(user)
+              window.location.assign('/')
+            }
+          })
           }
         })
 
