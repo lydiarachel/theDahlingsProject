@@ -42,7 +42,7 @@ class Suggestion extends Component {
                 </Link>
               </div>
               <p className="gist-date right-align">
-                {this.props.date.toLocaleString()}
+                {new Date(this.props.date).toLocaleString()}
               </p>
               <p className="gist-comment-author right-align">
                 by {this.props.authorName}
