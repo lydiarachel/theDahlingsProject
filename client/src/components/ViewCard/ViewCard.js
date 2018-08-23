@@ -11,15 +11,21 @@ const ViewCard = props => (
                 </Link>
               </h5>
               <div className="small-card-data">
-                <p>by: {props.author}</p>
-                <p>Category: <span className="gist-category">{props.category}</span></p>
+                <p>by <span className="small-card-author">{props.author}</span></p>
+                <p>Category: <span className="samall-card-category">{props.category}</span></p>
               
-                <p>Created at: {new Date(props.date).toLocaleString()}</p>
+                <p>{new Date(props.date).toLocaleString()}</p>
               </div>
               
 
               <div className="small-card-rating">
-                <i className="material-icons small-card-icon">favorite_border</i> {props.likes}
+                <span>
+                  <i className="material-icons small-card-icon">chat_bubble_outline</i> {props.comments.length}
+                </span>
+                <span>
+                  <i className="material-icons small-card-icon">favorite_border</i> {props.likes}
+                </span>
+                
               </div>
             
             </div>
