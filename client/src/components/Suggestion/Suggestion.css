@@ -1,7 +1,11 @@
 .suggestion-body {
     color: white;
-    border-top: 2px solid var(--cyan);
+    
     text-align: justify;
+}
+
+.suggestion-row {
+    border-bottom: 2px solid var(--cyan);
 }
 
 .gist-comment-author {
@@ -17,7 +21,8 @@
 .gist-liked {
     margin: 10px ;
 }
-.add-gist{
+
+.add-gist {
     margin: 10px;
 }
 
@@ -28,4 +33,11 @@
     font-style: italic;
     font-size: 12px;
     vertical-align: bottom;
+    text-transform: capitalize;
+}
+
+@media screen and (max-width: 600px) {
+    div.suggestion-row {
+        padding: 0 1rem;
+    }
 }

@@ -113,6 +113,7 @@ class Search extends React.Component {
                   comments={result.comments}
                   likes={result.liked}
                   date={result.date}
+                  comments={result.comments}
                   key={result._id}
                   id={result._id}
                   />

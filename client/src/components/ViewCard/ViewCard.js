@@ -25,7 +25,6 @@ const ViewCard = props => (
                 <span>
                   <i className="material-icons small-card-icon">favorite_border</i> {props.likes}
                 </span>
-                
               </div>
             
             </div>
