@@ -110,6 +110,7 @@ class Search extends React.Component {
                   <ViewCard title={result.title}
                   author={result.author.name}
                   category={result.category}
+                  comments={result.comments}
                   likes={result.liked}
                   date={result.date}
                   key={result._id}
