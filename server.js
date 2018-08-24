@@ -39,7 +39,7 @@ if (process.env.NODE_ENV === "production") {
 // handle auth routes
 app.use('/auth', authRoutes)
 // handle api routes
-app.use('/', apiRoutes)
+app.use('/*', apiRoutes)
 
 app.listen(PORT, err => {
     if (err) throw Error(err)

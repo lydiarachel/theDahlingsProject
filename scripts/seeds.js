@@ -4,7 +4,7 @@ const db = require("../db/models");
 const mongoose = require('mongoose')
 require('dotenv').config({path:'./config/.env'})
 
-const connection = mongoose.connect(process.env.MLAB_DB_URI || 'mongodb://localhost:27017/test', {useNewUrlParser: true });
+const connection = mongoose.connect('mongodb://csears:sell1buy0@ds131932.mlab.com:31932/heroku_f5rpw0fk'/*process.env.MLAB_DB_URI || 'mongodb://localhost:27017/test'*/, {useNewUrlParser: true });
 const gistSeed = [
   {
     _id: mongoose.Types.ObjectId('0efe86210123edd9099b025c'),
