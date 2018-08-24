@@ -68,3 +68,6 @@ a.brand-logo {
         width: 64px;
     }
 }
+.userName{
+    color:  var(--cyan);
+}

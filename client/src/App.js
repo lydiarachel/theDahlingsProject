@@ -18,14 +18,16 @@ class App extends Component {
   state = {
     user: {},
     hide: "hide",
-    show: ""
+    show: "",
+    name: ''
   };
 
   componentDidMount() {
     API.getAuthenticatedUser(this.state.user).then(({ data: user }) => {
       this.setState({ user });
       if (user) {
-        this.setState({ hide: "" , show: 'hide'});
+        this.setState({ hide: "" , show: 'hide',
+      name: this.state.user.name.split(' ')[0]});
       }
     });
   }
@@ -50,6 +52,7 @@ class App extends Component {
             show={this.state.show}
             hide={this.state.hide}
             user={this.state.user}
+            name={this.state.name}
           />
 
           <Route
