@@ -6,7 +6,6 @@ import categories from "../../utils/Categories";
 import "./NavBar.css";
 
 class NavBar extends Component {
- 
   render() {
     return (
       <div>
@@ -46,19 +45,23 @@ class NavBar extends Component {
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/auth"
-                  className={`waves-effect waves-light ${this.props.show}`}
-                >
-                  Sign In
-                </Link>
-                <Link
-                  to = '#'
-                  onClick={this.props.logOut}
-                  className={`waves-effect waves-light ${this.props.hide}`}
-                >
-                  Sign Out
-                </Link>
+                {!this.props.user ? (
+                  <Link
+                    to="/auth"
+                    className={`waves-effect waves-light ${this.props.show}`}
+                  >
+                    Sign In
+                  </Link>
+                ) : (
+                  <a
+                    className="dropdown-trigger"
+                    href="#!"
+                    data-target="dropdown2"
+                  >
+                    Signed in as: <span className="userName">{this.props.name}</span>
+                    <i className="material-icons right">arrow_drop_down</i>
+                  </a>
+                )}
               </li>
             </ul>
           </div>
@@ -66,9 +69,12 @@ class NavBar extends Component {
 
         {/* Sidebar */}
         <SideBar
-        logOut = {this.props.logOut}
-        hide ={this.props.hide}
-        show = {this.props.show}/>
+          logOut={this.props.logOut}
+          hide={this.props.hide}
+          show={this.props.show}
+          user={this.props.user}
+          name={this.props.name}
+        />
 
         {/* Dropdown Structure */}
         <ul id="dropdown1" className="dropdown-content">
@@ -79,6 +85,16 @@ class NavBar extends Component {
               </li>
             );
           })}
+        </ul>
+        <ul id="dropdown2" className="dropdown-content">
+          <li>
+            <Link to="/profile">Profile</Link>
+          </li>
+          <li>
+            <Link to="#" onClick={this.props.logOut}>
+              Sign Out
+            </Link>
+          </li>
         </ul>
       </div>
     );
