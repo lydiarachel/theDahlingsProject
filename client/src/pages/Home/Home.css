@@ -12,8 +12,8 @@
 
 .row {
     padding: 0 2rem;
-
 }
+
 .quote {
     height: 20px;
 }
@@ -28,8 +28,10 @@
 
     .search-box {
         margin: 3rem 0;
+        margin-top: 10rem;
     }
 }
+
 @media screen and (max-width: 600px) {
     div.row {
         padding: 0;

@@ -8,6 +8,10 @@
     border-bottom: 2px solid var(--cyan);
 }
 
+.suggestion-title {
+    color: var(--white);   
+}
+
 .gist-comment-author {
     color: white;
     display: flex;
