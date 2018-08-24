@@ -17,7 +17,7 @@ componentWillUnmount() {
     return(
       <div className="about-page-wrapper">
        <div className="row">
-        <div className="col s5 m5">
+        <div className="col s12 m5">
           <h1 className="about-title">Our Motto:</h1>
           <h2 className="about-motto">Gist Do It!</h2>
           <p className="about-body">
@@ -59,7 +59,7 @@ componentWillUnmount() {
                 <div className="card-image">
                   <img src ="/images/caleb.png"/>
                   <span className="card-title">Card Title</span>
-                  <div class="card-content">
+                  <div className="card-content">
                 <p className="about-body">I am a very simple card. I am good at containing small bits of information.
                 I am convenient because I require little markup to use effectively.</p>
               </div>
@@ -75,7 +75,7 @@ componentWillUnmount() {
                 <div className="card-image">
                   <img src ="/images/nata.png"/>
                   <span className="card-title">Card Title</span>
-                  <div class="card-content">
+                  <div className="card-content">
                 <p className="about-body">I am a very simple card. I am good at containing small bits of information.
                 I am convenient because I require little markup to use effectively.</p>
               </div>
@@ -91,7 +91,7 @@ componentWillUnmount() {
               <div className="card-image">
                 <img id="kevin-pic" src ="/images/kevin.png"/>
                 <span className="card-title">Card Title</span>
-                <div class="card-content">
+                <div className="card-content">
               <p className="about-body">I am a very simple card. I am good at containing small bits of information.
               I am convenient because I require little markup to use effectively.</p>
             </div>
@@ -107,7 +107,7 @@ componentWillUnmount() {
               <div className="card-image">
                 <img  id="lydia-pic" src ="/images/lydia.png"/>
                 <span className="card-title">Card Title</span>
-                <div class="card-content">
+                <div className="card-content">
               <p className="about-body">A creative spirit that sparks innovative light everywhere..like a fairy! </p> 
               <br></br>
               <p className="about-body">Fav quote: "If your dreams do not scare you, they are not big enough."</p>

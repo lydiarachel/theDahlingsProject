@@ -46,7 +46,7 @@ class Card extends Component {
                     data-tooltip="Like"
                     onClick={this.handleClick}
                   >
-                    <i className="material-icons teal-text lighten-2">
+                    <i className="material-icons  cyan-text accent-4">
                       favorite_border
                     </i>
                   </button>
