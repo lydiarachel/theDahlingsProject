@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Heading from "../../components/Heading";
 import Suggestion from "../../components/Suggestion";
 import API from "../../utils/API";
-import "./Suggestion.css";
+import "./Suggestions.css";
 
 class Suggestions extends Component {
   state = {
@@ -40,7 +40,7 @@ class Suggestions extends Component {
         {!this.state.Sugistions.length ? (
           <h5>No Suggestions Have been Created</h5>
         ) : (
-          <div className="col s11 m11">
+          <div>
             {this.state.Sugistions.map(suggestion => (
               <Suggestion
                 key={suggestion._id}
