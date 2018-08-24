@@ -8,3 +8,17 @@
     right: 2rem;
     z-index: 2;
 }
+
+@media screen and (max-width: 900px) {
+    .action-buttons-list {
+        top: 60px;
+        right: 1rem;
+        list-style-type: none;
+        z-index: 1;
+    }
+
+    .action-buttons-list li {
+        display: inline-block;
+        margin-right: 1rem;;
+    }
+}

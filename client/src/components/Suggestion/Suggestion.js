@@ -15,7 +15,7 @@ class Suggestion extends Component {
       <div>
         <div className="row suggestion-row">
             <div className="col s12 m9 suggestion-body">
-              <h4 className="title">{this.props.title}</h4>
+              <h4 className="suggestion-title">{this.props.title}</h4>
               <p>{this.props.body}</p>
             </div>
             <div className="col s12 m3 suggestion-body">

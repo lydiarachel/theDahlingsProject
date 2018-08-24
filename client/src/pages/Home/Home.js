@@ -79,16 +79,16 @@ class Home extends React.Component {
     return (
         <div className="homepage">
 
+          <div className={"action-buttons " + this.props.hide}>
+            <ActionButtons />
+          </div>
+
           <SearchBar
             search={this.state.search} 
           handleInputChange={this.handleInputChange}
             handleKeyPress={this.handleKeyPress}
             clearSearchbar={this.clearSearchbar}
           />
-   
-          <div className={"action-buttons " + this.props.hide}>
-            <ActionButtons />
-          </div>
 
           {
             (this.state.gists.length > 0) ?
