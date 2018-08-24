@@ -79,7 +79,7 @@ class UserForm extends Component {
       <div className="row">
         <form className="col s12">
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s12 m6">
               <input
                 name="first_name"
                 type="text"
@@ -88,7 +88,7 @@ class UserForm extends Component {
               />
               <label htmlFor="first_name">First Name</label>
             </div>
-            <div className="input-field col s6">
+            <div className="input-field col s12 m6">
               <input
                 name="last_name"
                 type="text"
