@@ -14,7 +14,7 @@ class Card extends Component {
   render() {
     return (
       <div className="row gist-card-row">
-        <div className="col s11 m11">
+        <div className="col s10 offset-s1 m10 offset-m1 l11">
           <div className="card gist-card-styling">
             <div className="card-content white">
               <div>
