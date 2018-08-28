@@ -268,12 +268,12 @@ router.get('/user/profile', checkAuthStatus, (req, res) => {
     res.json(req.user)
 })
 
-// CATCH ALL ROUTE
-router.use('/*', (req, res, next) => {
-    res.json({
-        message: 'Route not found'
-    })
-})
+// // CATCH ALL ROUTE
+// router.use('/*', (req, res, next) => {
+//     res.json({
+//         message: 'Route not found'
+//     })
+// })
 
 
 module.exports = router
