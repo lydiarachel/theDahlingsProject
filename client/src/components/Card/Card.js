@@ -27,9 +27,6 @@ class Card extends Component {
                 </p>
               </div>
 
-              {/*create a div that will have two p tags with className that are styled. This will allow me to place date and by 
-          information on the card. need to write a props.date.  
-          for body, need to have a div with p tag and className that is styled for the body of the*/}
               <div>
                 <p id="gist-body">{this.props.body}</p>
               </div>
