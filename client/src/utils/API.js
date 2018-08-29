@@ -54,8 +54,9 @@ export default {
     loginLocal: new_user => {
         return axios.post('/auth/local', new_user)
     },
-    registerUser: new_user => {
-        return axios.post('/auth/register', new_user)
+    registerUser: (new_user) => {
+  
+        return axios({method: 'post', config: { headers: {'Content-Type':'multidata/form-data'}},url:'/auth/register', data: new_user})
     },
   
     getAuthenticatedUser: () => axios.get('/user/profile')

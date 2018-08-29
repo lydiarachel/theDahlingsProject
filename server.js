@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cookieSession = require('cookie-session')
 const passport = require('passport')
+const path = require('path')
 require('dotenv').config({
     path: './config/.env'
 })
@@ -30,7 +31,7 @@ app.use(passport.session())
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
-
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"))
