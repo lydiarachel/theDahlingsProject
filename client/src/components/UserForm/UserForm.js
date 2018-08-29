@@ -9,7 +9,7 @@ class UserForm extends Component {
     email: "",
     interest: "",
     knowledge: "",
-    image: "",
+    profileImage: "",
     password2: ""
   };
   handleInputChange = event => {
@@ -20,6 +20,7 @@ class UserForm extends Component {
   };
   handleFormSubmit = event => {
     event.preventDefault();
+   
     if (!this.state.first_name && !this.state.last_name) {
       window.M.toast({
         html: "Please Enter a First and Last Name",
@@ -41,14 +42,14 @@ class UserForm extends Component {
     } else if (!allowed.test(this.state.email)) {
       window.M.toast({ html: "Please Enter a valid Email", classes: "cyan" });
     } else {
-      const new_user = {};
-      new_user.name = `${this.state.first_name} ${this.state.last_name}`;
-      new_user.email = this.state.email;
-      new_user.password = this.state.password;
-      new_user.password2 = this.state.password2;
-      new_user.knowledge = this.state.knowledge.split(", ");
-      new_user.interests = this.state.interest.split(", ");
-      new_user.image = this.state.image;
+      const new_user = new FormData();
+      new_user.append('name', `${this.state.first_name} ${this.state.last_name}`);
+      new_user.append('email', this.state.email);
+      new_user.append('password', this.state.password);
+      new_user.append('password2', this.state.password2);
+      new_user.append('knowledge', this.state.knowledge.split(", "));
+      new_user.append('interests', this.state.interest.split(", "));
+      new_user.append('profileImage', this.uploadInput.files[0]);
 
       API.registerUser(new_user).then(success => {
         if (success.data === "Email address already taken") {
@@ -70,14 +71,14 @@ class UserForm extends Component {
         password2: "",
         knowledge: "",
         interest: "",
-        image: ""
+        profileImage: ""
       });
     }
   };
   render() {
     return (
       <div className="row">
-        <form className="col s12">
+        <form className="col s12" enctype="multipart/form-data">
           <div className="row">
             <div className="input-field col s12 m6">
               <input
@@ -121,6 +122,30 @@ class UserForm extends Component {
             </div>
           </div>
           <div className="row">
+            <div className="file-field input-field col s12">
+              <div className="btn cyan">
+                <span>File</span>
+                <input
+                  id="profileImage"
+                  name="profileImage"
+                  type="file"
+                  ref={ref => {
+                    this.uploadInput = ref;
+                  }}
+                />
+              </div>
+              <div class="file-path-wrapper">
+                <input
+                  ref={ref => {
+                    this.fileName = ref;
+                  }}
+                  class="file-path validate"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="row">
             <div className="input-field col s12">
               <input
                 name="email"
@@ -157,6 +182,7 @@ class UserForm extends Component {
             className="btn waves-effect waves-light right btn-gist-page"
             type="submit"
             name="action"
+            enctype="multipart/form-data"
             onClick={this.handleFormSubmit}
           >
             Submit
