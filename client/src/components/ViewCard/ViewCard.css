@@ -1,3 +1,7 @@
+.view-card {
+    color: var(--dark-gray);
+}
+
 .card.medium {
     height: 250px;
     margin: 2.5rem 2rem;
@@ -24,13 +28,8 @@
 .small-card-title {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    color: var(--cyan);
     font-size: 1.5rem;
     margin-bottom: 1rem;
-}
-
-.small-card-title a{
-    color: var(--dark-gray);
 }
 
 .small-card-author {
