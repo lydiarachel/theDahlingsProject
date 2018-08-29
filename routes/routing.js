@@ -268,12 +268,30 @@ router.get('/user/profile', checkAuthStatus, (req, res) => {
     res.json(req.user)
 })
 
-// // CATCH ALL ROUTE
-// router.use('/*', (req, res, next) => {
-//     res.json({
-//         message: 'Route not found'
-//     })
-// })
+// START UDATE PROFILE ROUTES
+// =================================================
+router.put('/user/update', (req, res) => {
+    const updated_user = req.body
+    control.User.findOneAndUpdate(updated_user._id, updated_user)
+        .then(success => {
+            if (success) {
+                res.status(200).json(success)
+            } else {
+                res.status(404).json({
+                    message: 'Unable to find user in database'
+                })
+            }
+        })
+        .catch(err => {
+            res.status(500).json({
+                message: 'Unable to update user, please check that all data provided is in the correct format.',
+                Error: err
+            })
+        })
+})
+// END UDATE PROFILE ROUTES
+// =================================================
+
 
 
 module.exports = router

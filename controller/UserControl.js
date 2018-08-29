@@ -21,8 +21,10 @@ exports.find = params =>{
     .populate('gists', 'gist')
 }
 
-exports.findOneAndUpdate = params =>{
-   return User.findOneAndUpdate(params) 
+exports.findOneAndUpdate = (match_id, updates) =>{
+    const userObjId = mongoose.Types.ObjectId(match_id)
+    updates._id = userObjId
+   return User.findOneAndUpdate({_id: userObjId}, updates, {new:true}) 
 }
 
 exports.getUserByEmail = (email, cb) => {
