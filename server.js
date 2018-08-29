@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const path = require('path')
 const cookieSession = require('cookie-session')
 const passport = require('passport')
 require('dotenv').config({
@@ -40,6 +41,14 @@ if (process.env.NODE_ENV === "production") {
 app.use('/auth', authRoutes)
 // handle api routes
 app.use('/', apiRoutes)
+
+app.use('/*', (req, res, next) => {
+    if (process.env.NODE_ENV === 'production') {
+        res.sendFile(path.join(__dirname, '/client/build/index.html'))
+    } else {
+        res.sendFile(path.resolve(__dirname, './client/public/index.html'))
+    }
+})
 
 app.listen(PORT, err => {
     if (err) throw Error(err)
