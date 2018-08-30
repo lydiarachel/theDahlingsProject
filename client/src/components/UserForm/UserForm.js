@@ -14,39 +14,46 @@ class UserForm extends Component {
     image: "",
     password2: ""
   };
-  onKeyPress = event =>{
+  onKeyPress = event => {
     if (event.which === 13 /* Enter */) {
       event.preventDefault();
     }
-    
-  }
+  };
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
-  addInterest = event =>{
+  addInterest = event => {
     event.preventDefault();
     if (event.which === 13 /* Enter */ && this.state.interest) {
-      interestArray.push(this.state.interest.trim())
-      this.setState({interest: ''})
-      window.M.toast({html: "Item added to Interest", classes: 'cyan'})
-      
-    }  
-  }
-  addKnowledge = event =>{
+      interestArray.push(this.state.interest.trim());
+      this.setState({ interest: "" });
+      window.M.toast({ html: "Item added to Interest", classes: "cyan" });
+    } else if (event.which === 13 && !this.state.interest) {
+      window.M.toast({
+        html: "Add a Item before hitting Enter",
+        classes: "cyan"
+      });
+    }
+  };
+  addKnowledge = event => {
     event.preventDefault();
     if (event.which === 13 /* Enter */ && this.state.knowledge) {
-      knowledgeArray.push(this.state.knowledge.trim())
-      window.M.toast({html: "Item added to Knowledge", classes: 'cyan'})
-      this.setState({knowledge: ''})
-      
+      knowledgeArray.push(this.state.knowledge.trim());
+      window.M.toast({ html: "Item added to Knowledge", classes: "cyan" });
+      this.setState({ knowledge: "" });
+    } else if (event.which === 13 && !this.state.knowledge) {
+      window.M.toast({
+        html: "Add a Item before hitting Enter",
+        classes: "cyan"
+      });
     }
-  }
+  };
   handleFormSubmit = event => {
     event.preventDefault();
-   
+
     if (!this.state.first_name && !this.state.last_name) {
       window.M.toast({
         html: "Please Enter a First and Last Name",
@@ -58,7 +65,7 @@ class UserForm extends Component {
       window.M.toast({ html: "Please enter a password", classes: "cyan" });
     } else if (!this.state.password2) {
       window.M.toast({ html: "Please Confirm Your Password", classes: "cyan" });
-    } else if (!this.state.interest) {
+    } else if (!this.state.interest && !interestArray) {
       window.M.toast({ html: "Please enter some Interest", classes: "cyan" });
     } else if (this.state.password.length < 6) {
       window.M.toast({
@@ -68,49 +75,55 @@ class UserForm extends Component {
     } else if (!allowed.test(this.state.email)) {
       window.M.toast({ html: "Please Enter a valid Email", classes: "cyan" });
     } else {
-      if(this.state.interest){
-        interestArray.push(this.state.interest)
+      if (this.state.interest) {
+        interestArray.push(this.state.interest);
       }
-      if(this.state.knowledge){
-        knowledgeArray.push(this.state.knowledge)
+      if (this.state.knowledge) {
+        knowledgeArray.push(this.state.knowledge);
       }
       const new_user = new FormData();
-      new_user.append('name', `${this.state.first_name} ${this.state.last_name}`);
-      new_user.append('email', this.state.email);
-      new_user.append('password', this.state.password);
-      new_user.append('password2', this.state.password2);
-      new_user.append('knowledge', knowledgeArray);
-      new_user.append('interests', interestArray);
-      new_user.append('profileImage', this.uploadInput.files[0]);
+      new_user.append("name", `${this.state.first_name} ${this.state.last_name}`);
+      new_user.append("email", this.state.email);
+      new_user.append("password", this.state.password);
+      new_user.append("password2", this.state.password2);
+      new_user.append("knowledge", knowledgeArray);
+      new_user.append("interests", interestArray);
+      new_user.append("profileImage", this.uploadInput.files[0]);
 
       API.registerUser(new_user).then(success => {
+        console.log(success);
         if (success.data === "Email address already taken") {
+          window.M.toast({ html: success.data, classes: "cyan" });
+        } else if (success.data === "Images Must Be jpeg or png") {
           window.M.toast({ html: success.data, classes: "cyan" });
         } else {
           API.getAuthenticatedUser(success.data).then(user => {
             if (user) {
               window.location.assign("/");
+              this.setState({
+                email: "",
+                first_name: "",
+                last_name: "",
+                password: "",
+                password2: "",
+                knowledge: "",
+                interest: "",
+                profileImage: ""
+              });
             }
           });
         }
-      });
-
-      this.setState({
-        email: "",
-        first_name: "",
-        last_name: "",
-        password: "",
-        password2: "",
-        knowledge: "",
-        interest: "",
-        profileImage: ""
       });
     }
   };
   render() {
     return (
       <div className="row">
-        <form className="col s12" enctype="multipart/form-data">
+        <form
+          className="col s12"
+          encType="multipart/form-data"
+          onKeyDownCapture={this.onKeyPress}
+        >
           <div className="row">
             <div className="input-field col s12 m6">
               <input
@@ -136,7 +149,7 @@ class UserForm extends Component {
               <input
                 name="interest"
                 type="text"
-                onKeyUpCapture ={this.addInterest}
+                onKeyUpCapture={this.addInterest}
                 value={this.state.interest}
                 onChange={this.handleInputChange}
               />
@@ -148,7 +161,7 @@ class UserForm extends Component {
               <input
                 name="knowledge"
                 type="text"
-                onKeyUpCapture ={this.addKnowledge}
+                onKeyUpCapture={this.addKnowledge}
                 value={this.state.knowledge}
                 onChange={this.handleInputChange}
               />
@@ -168,14 +181,16 @@ class UserForm extends Component {
                   }}
                 />
               </div>
-              <div class="file-path-wrapper">
+              <div className="file-path-wrapper">
                 <input
                   ref={ref => {
                     this.fileName = ref;
                   }}
                   class="file-path validate"
                   type="text"
+                  value={this.state.profileImage}
                 />
+                <label htmlFor="profileImage">Profile Picture</label>
               </div>
             </div>
           </div>
