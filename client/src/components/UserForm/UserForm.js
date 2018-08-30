@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 const allowed = /^([a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$)/;
+let interestArray = [];
+let knowledgeArray = [];
 class UserForm extends Component {
   state = {
     first_name: "",
@@ -9,15 +11,39 @@ class UserForm extends Component {
     email: "",
     interest: "",
     knowledge: "",
-    profileImage: "",
+    image: "",
     password2: ""
   };
+  onKeyPress = event =>{
+    if (event.which === 13 /* Enter */) {
+      event.preventDefault();
+    }
+    
+  }
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
+  addInterest = event =>{
+    event.preventDefault();
+    if (event.which === 13 /* Enter */ && this.state.interest) {
+      interestArray.push(this.state.interest.trim())
+      this.setState({interest: ''})
+      window.M.toast({html: "Item added to Interest", classes: 'cyan'})
+      
+    }  
+  }
+  addKnowledge = event =>{
+    event.preventDefault();
+    if (event.which === 13 /* Enter */ && this.state.knowledge) {
+      knowledgeArray.push(this.state.knowledge.trim())
+      window.M.toast({html: "Item added to Knowledge", classes: 'cyan'})
+      this.setState({knowledge: ''})
+      
+    }
+  }
   handleFormSubmit = event => {
     event.preventDefault();
    
@@ -42,13 +68,19 @@ class UserForm extends Component {
     } else if (!allowed.test(this.state.email)) {
       window.M.toast({ html: "Please Enter a valid Email", classes: "cyan" });
     } else {
+      if(this.state.interest){
+        interestArray.push(this.state.interest)
+      }
+      if(this.state.knowledge){
+        knowledgeArray.push(this.state.knowledge)
+      }
       const new_user = new FormData();
       new_user.append('name', `${this.state.first_name} ${this.state.last_name}`);
       new_user.append('email', this.state.email);
       new_user.append('password', this.state.password);
       new_user.append('password2', this.state.password2);
-      new_user.append('knowledge', this.state.knowledge.split(", "));
-      new_user.append('interests', this.state.interest.split(", "));
+      new_user.append('knowledge', knowledgeArray);
+      new_user.append('interests', interestArray);
       new_user.append('profileImage', this.uploadInput.files[0]);
 
       API.registerUser(new_user).then(success => {
@@ -104,10 +136,11 @@ class UserForm extends Component {
               <input
                 name="interest"
                 type="text"
+                onKeyUpCapture ={this.addInterest}
                 value={this.state.interest}
                 onChange={this.handleInputChange}
               />
-              <label htmlFor="Interest">Interest</label>
+              <label htmlFor="Interest">Interest (Press enter to Add)</label>
             </div>
           </div>
           <div className="row">
@@ -115,10 +148,11 @@ class UserForm extends Component {
               <input
                 name="knowledge"
                 type="text"
+                onKeyUpCapture ={this.addKnowledge}
                 value={this.state.knowledge}
                 onChange={this.handleInputChange}
               />
-              <label htmlFor="knowledge">Knowledge</label>
+              <label htmlFor="knowledge">Knowledge (Press enter to Add)</label>
             </div>
           </div>
           <div className="row">
