@@ -88,7 +88,7 @@ class NavBar extends Component {
         </ul>
         <ul id="dropdown2" className="dropdown-content">
           <li>
-            <Link to="/profile">Profile</Link>
+            <Link to="/update-profile">Profile</Link>
           </li>
           <li>
             <Link to="#" onClick={this.props.logOut}>
