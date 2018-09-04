@@ -58,6 +58,10 @@ export default {
   
         return axios({method: 'post', config: { headers: {'Content-Type':'multidata/form-data'}},url:'/auth/register', data: new_user})
     },
+    updateUser: (update_user) => {
+  
+        return axios({method: 'post', config: { headers: {'Content-Type':'multidata/form-data'}},url:'/user/update', data: update_user})
+    },
   
     getAuthenticatedUser: () => axios.get('/user/profile')
 

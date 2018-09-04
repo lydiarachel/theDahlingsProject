@@ -13,6 +13,7 @@ import CreateProfile from "./pages/CreateProfile/CreateProfile";
 import Suggestions from "./pages/Suggestion/Suggestions";
 
 import API from "./utils/API";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 class App extends Component {
   state = {
@@ -140,6 +141,11 @@ class App extends Component {
             exact
             path="/create-profile"
             component={CreateProfile}
+          />
+          <Route
+            exact
+            path="/update-profile"
+            component={ProfilePage}
           />
           <Route
             exact
